@@ -1,61 +1,180 @@
 .about-section {
-  padding: 2rem 0;
-}
-
-.about-container {
-  max-width: 900px;
+  padding: 6rem 0;
+  max-width: 1200px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
 }
 
-.about-container h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+.about-header {
   text-align: center;
+  margin-bottom: 4rem;
 }
 
 .about-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
 }
 
-.about-text h2 {
+.about-text h2,
+.about-experience h2 {
   font-size: 1.8rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+  display: flex;
+  align-items: center;
+}
+
+.about-text h2 i,
+.about-experience h2 i {
+  color: var(--primary-color);
+  margin-right: 0.75rem;
+  font-size: 1.4rem;
 }
 
 .about-text p {
-  font-size: 1.1rem;
-  line-height: 1.7;
   margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: #555;
+}
+
+.education-item {
+  margin-bottom: 2rem;
+}
+
+.education-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.certification-list {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+}
+
+.certification-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.about-text a {
+  color: var(--primary-color);
+  font-weight: 600;
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.about-text a:hover {
+  color: var(--secondary-color);
+}
+
+.experience-card {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--box-shadow);
+  margin-bottom: 2rem;
+  transition: var(--transition);
+}
+
+.experience-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.experience-card ul {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.experience-card li {
+  margin-bottom: 0.75rem;
+  position: relative;
+}
+
+.skills-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.skill-category h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--dark-color);
 }
 
 .skills-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.8rem;
-  margin-top: 1rem;
+  gap: 0.75rem;
 }
 
 .skill-tag {
-  background-color: #f0f0f0;
-  color: #333;
+  background-color: rgba(104, 158, 75, 0.1);
+  color: var(--primary-color);
   padding: 0.5rem 1rem;
-  border-radius: 25px;
+  border-radius: 50px;
   font-size: 0.9rem;
+  font-weight: 500;
+  transition: var(--transition);
+}
+
+.skill-tag:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.event-list {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 2rem;
+}
+
+.event-list li {
+  margin-bottom: 1.5rem;
+}
+
+.event-list strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+  color: var(--dark-color);
+}
+
+.event-list p {
+  margin: 0;
+  color: #555;
+}
+
+@media (max-width: 992px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
-  .about-container h1 {
-    font-size: 2rem;
+  .about-section {
+    padding: 4rem 0;
   }
   
-  .about-text h2 {
-    font-size: 1.5rem;
+  .about-header {
+    margin-bottom: 2.5rem;
   }
   
-  .about-text p {
-    font-size: 1rem;
+  .experience-card {
+    padding: 1.5rem;
+  }
+  
+  .about-text h2,
+  .about-experience h2 {
+    font-size: 1.6rem;
   }
 } 
