@@ -65,6 +65,7 @@ This generates optimized files in the `build` folder that are ready for deployme
 
 ## Future Enhancements
 
+- Mobile View Responsiveness
 - Preview Project Images
 - Blog section for sharing insights and experiences
 - Dark/light mode toggle
