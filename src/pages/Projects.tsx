@@ -16,42 +16,42 @@ const Projects: React.FC = () => {
       title: 'AI-Forecast',
       description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
       tags: ['Python', 'Time-Series', 'ARIMA', 'Prophet', 'Data Analytics'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/AI-Forecast'
     },  
     {
       id: 2,
       title: 'PilarEaseDJO',
       description: 'A Django web application integrating emotion analysis, sentiment-aware dashboards, user authentication, chatbot responses, and tweet classification.',
       tags: ['Django', 'Python', 'Sentiment Analysis', 'NLP', 'Web App'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/PilarEaseDJO'
     },
     {
       id: 3,
       title: 'ExpenseMate',
       description: 'A budget management desktop application that helps users visualize spending trends and maintain financial discipline.',
       tags: ['Finance', 'Desktop App', 'Data Visualization'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/ExpenseMate'
     },
     {
       id: 4,
       title: 'WebcamEmotionMusicPlayer',
       description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
       tags: ['Computer Vision', 'Emotion Analysis', 'OpenCV', 'MediaPipe'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer'
     },
     {
       id: 5,
       title: 'DTR-Calculator',
       description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
       tags: ['Productivity', 'Time Management', 'Calculator'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/DTR-Calculator'
     },
     {
       id: 6,
       title: 'AI Chatbot',
       description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
       tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot'],
-      github: 'https://github.com/KCprsnlcc'
+      github: 'https://github.com/KCprsnlcc/chatbot-app'
     }
   ];
 
