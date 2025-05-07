@@ -1,5 +1,17 @@
 import React, { useState, useEffect, useRef } from 'react';
+import emailjs from '@emailjs/browser';
 import './Contact.css';
+
+// IMPORTANT: Replace these values with your actual EmailJS credentials
+// 1. Sign up at https://www.emailjs.com/
+// 2. Create a service (e.g., Gmail, Outlook)
+// 3. Create an email template
+// 4. Get your public key from Account > API Keys
+const EMAILJS_CONFIG = {
+  serviceId: 'service_alfqbgb',  
+  templateId: 'template_l75hs2v', 
+  publicKey: 'vl-PwUUHY2QzZDlfj'  
+};
 
 interface FormData {
   name: string;
@@ -33,20 +45,8 @@ const Contact: React.FC = () => {
     });
     setCurrentTime(`${formattedDate} at ${formattedTime}`);
     
-    // Load EmailJS SDK
-    const script = document.createElement('script');
-    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
-    script.async = true;
-    document.body.appendChild(script);
-
-    script.onload = () => {
-      // Initialize EmailJS with your public key
-      (window as any).emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
-    };
-
-    return () => {
-      document.body.removeChild(script);
-    };
+    // Initialize EmailJS
+    emailjs.init(EMAILJS_CONFIG.publicKey);
   }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -79,19 +79,19 @@ const Contact: React.FC = () => {
       
       // Debug info
       console.log('Sending with credentials:', {
-        serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY ? 
-          `${process.env.REACT_APP_EMAILJS_PUBLIC_KEY.substring(0, 4)}...` : 'undefined',
+        serviceId: EMAILJS_CONFIG.serviceId,
+        templateId: EMAILJS_CONFIG.templateId,
+        publicKey: EMAILJS_CONFIG.publicKey ? 
+          `${EMAILJS_CONFIG.publicKey.substring(0, 4)}...` : 'undefined',
         formRef: formRef.current ? 'Form element exists' : 'No form element'
       });
       
       // Use EmailJS to send the form
-      const result = await (window as any).emailjs.sendForm(
-        process.env.REACT_APP_EMAILJS_SERVICE_ID,
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
-        formRef.current,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      const result = await emailjs.sendForm(
+        EMAILJS_CONFIG.serviceId,
+        EMAILJS_CONFIG.templateId,
+        formRef.current!,
+        EMAILJS_CONFIG.publicKey
       );
 
       if (result.status === 200) {
