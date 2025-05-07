@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
+import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
 
 // IMPORTANT: Replace these values with your actual EmailJS credentials
@@ -12,6 +13,12 @@ const EMAILJS_CONFIG = {
   templateId: 'template_l75hs2v', 
   publicKey: 'vl-PwUUHY2QzZDlfj'  
 };
+
+// reCAPTCHA site key - you need to generate a new valid site key
+// Go to: https://www.google.com/recaptcha/admin
+// Choose "reCAPTCHA v2" and "I'm not a robot" Checkbox
+// Add your domain and get a new site key
+const RECAPTCHA_SITE_KEY = '6Le40jArAAAAAFt9IWRGr6AcwKQscv353-sn41N9';
 
 interface FormData {
   name: string;
@@ -28,7 +35,9 @@ const Contact: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState('');
+  const [recaptchaValue, setRecaptchaValue] = useState<string | null>(null);
   const formRef = useRef<HTMLFormElement>(null);
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [currentTime, setCurrentTime] = useState('');
 
   useEffect(() => {
@@ -57,8 +66,19 @@ const Contact: React.FC = () => {
     }));
   };
 
+  const handleRecaptchaChange = (value: string | null) => {
+    setRecaptchaValue(value);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate reCAPTCHA
+    if (!recaptchaValue) {
+      setError('Please complete the reCAPTCHA verification.');
+      return;
+    }
+    
     setLoading(true);
     setError('');
     setSuccess(false);
@@ -77,13 +97,24 @@ const Contact: React.FC = () => {
       });
       setCurrentTime(`${formattedDate} at ${formattedTime}`);
       
+      // Prepare form data with reCAPTCHA
+      if (formRef.current) {
+        // Add recaptcha value to form data
+        const recaptchaInput = document.createElement('input');
+        recaptchaInput.type = 'hidden';
+        recaptchaInput.name = 'g-recaptcha-response';
+        recaptchaInput.value = recaptchaValue;
+        formRef.current.appendChild(recaptchaInput);
+      }
+      
       // Debug info
       console.log('Sending with credentials:', {
         serviceId: EMAILJS_CONFIG.serviceId,
         templateId: EMAILJS_CONFIG.templateId,
         publicKey: EMAILJS_CONFIG.publicKey ? 
           `${EMAILJS_CONFIG.publicKey.substring(0, 4)}...` : 'undefined',
-        formRef: formRef.current ? 'Form element exists' : 'No form element'
+        formRef: formRef.current ? 'Form element exists' : 'No form element',
+        recaptcha: recaptchaValue ? 'Verified' : 'Not verified'
       });
       
       // Use EmailJS to send the form
@@ -102,6 +133,17 @@ const Contact: React.FC = () => {
           email: '',
           message: '',
         });
+        // Reset reCAPTCHA
+        recaptchaRef.current?.reset();
+        setRecaptchaValue(null);
+        
+        // Remove the temporary recaptcha input
+        if (formRef.current) {
+          const recaptchaInput = formRef.current.querySelector('input[name="g-recaptcha-response"]');
+          if (recaptchaInput) {
+            formRef.current.removeChild(recaptchaInput);
+          }
+        }
       } else {
         throw new Error(`Failed to send message: Status ${result.status}`);
       }
@@ -110,8 +152,20 @@ const Contact: React.FC = () => {
       // More detailed error message
       const errorMessage = err.text || err.message || 'Failed to send your message. Please try again later.';
       setError(`Error: ${errorMessage}`);
+      
+      // Reset reCAPTCHA on error
+      recaptchaRef.current?.reset();
+      setRecaptchaValue(null);
     } finally {
       setLoading(false);
+      
+      // Clean up the temporary input if it exists
+      if (formRef.current) {
+        const recaptchaInput = formRef.current.querySelector('input[name="g-recaptcha-response"]');
+        if (recaptchaInput) {
+          formRef.current.removeChild(recaptchaInput);
+        }
+      }
     }
   };
 
@@ -225,11 +279,20 @@ const Contact: React.FC = () => {
               name="time" 
               value={currentTime} 
             />
+            
+            {/* Google reCAPTCHA */}
+            <div className="recaptcha-container">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={RECAPTCHA_SITE_KEY}
+                onChange={handleRecaptchaChange}
+              />
+            </div>
 
             <button 
               type="submit" 
               className={`btn btn-primary submit-btn ${loading ? 'loading' : ''}`}
-              disabled={loading}
+              disabled={loading || !recaptchaValue}
             >
               {loading ? (
                 <>

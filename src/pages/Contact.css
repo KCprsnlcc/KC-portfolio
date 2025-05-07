@@ -327,6 +327,12 @@
     padding: 0.75rem 1.25rem;
     font-size: 0.9rem;
   }
+  
+  .recaptcha-container {
+    transform: scale(0.85);
+    transform-origin: 0 0;
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 380px) {
@@ -344,6 +350,10 @@
   
   .form-title, .info-title {
     font-size: 1.3rem;
+  }
+  
+  .recaptcha-container {
+    transform: scale(0.75);
   }
 }
 
@@ -433,4 +443,8 @@
   .form-status i {
     font-size: 1rem;
   }
+}
+
+.recaptcha-container {
+  margin-bottom: 1.5rem;
 } 
