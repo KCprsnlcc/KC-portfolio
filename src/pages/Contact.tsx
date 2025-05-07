@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Contact.css';
 
 interface FormData {
@@ -13,6 +13,41 @@ const Contact: React.FC = () => {
     email: '',
     message: '',
   });
+  const [loading, setLoading] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState('');
+  const formRef = useRef<HTMLFormElement>(null);
+  const [currentTime, setCurrentTime] = useState('');
+
+  useEffect(() => {
+    // Format current date and time
+    const now = new Date();
+    const formattedDate = now.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+    const formattedTime = now.toLocaleTimeString('en-US', {
+      hour: '2-digit',
+      minute: '2-digit'
+    });
+    setCurrentTime(`${formattedDate} at ${formattedTime}`);
+    
+    // Load EmailJS SDK
+    const script = document.createElement('script');
+    script.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js';
+    script.async = true;
+    document.body.appendChild(script);
+
+    script.onload = () => {
+      // Initialize EmailJS with your public key
+      (window as any).emailjs.init(process.env.REACT_APP_EMAILJS_PUBLIC_KEY);
+    };
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -22,17 +57,62 @@ const Contact: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // In a real app, you would handle form submission here
-    console.log('Form submitted:', formData);
-    alert('Thanks for your message! This is a demo, so no message was actually sent.');
-    // Reset form
-    setFormData({
-      name: '',
-      email: '',
-      message: '',
-    });
+    setLoading(true);
+    setError('');
+    setSuccess(false);
+
+    try {
+      // Update the time when sending the form
+      const now = new Date();
+      const formattedDate = now.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+      const formattedTime = now.toLocaleTimeString('en-US', {
+        hour: '2-digit',
+        minute: '2-digit'
+      });
+      setCurrentTime(`${formattedDate} at ${formattedTime}`);
+      
+      // Debug info
+      console.log('Sending with credentials:', {
+        serviceId: process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        templateId: process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        publicKey: process.env.REACT_APP_EMAILJS_PUBLIC_KEY ? 
+          `${process.env.REACT_APP_EMAILJS_PUBLIC_KEY.substring(0, 4)}...` : 'undefined',
+        formRef: formRef.current ? 'Form element exists' : 'No form element'
+      });
+      
+      // Use EmailJS to send the form
+      const result = await (window as any).emailjs.sendForm(
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
+        formRef.current,
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
+      );
+
+      if (result.status === 200) {
+        setSuccess(true);
+        // Reset form
+        setFormData({
+          name: '',
+          email: '',
+          message: '',
+        });
+      } else {
+        throw new Error(`Failed to send message: Status ${result.status}`);
+      }
+    } catch (err: any) {
+      console.error('Error sending email:', err);
+      // More detailed error message
+      const errorMessage = err.text || err.message || 'Failed to send your message. Please try again later.';
+      setError(`Error: ${errorMessage}`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -81,7 +161,19 @@ const Contact: React.FC = () => {
         </div>
         
         <div className="contact-form-container" data-aos="fade-left" data-aos-delay="200">
-          <form className="contact-form" onSubmit={handleSubmit}>
+          <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
+            {success && (
+              <div className="form-status success">
+                <i className="fas fa-check-circle"></i> Your message has been sent successfully!
+              </div>
+            )}
+            
+            {error && (
+              <div className="form-status error">
+                <i className="fas fa-exclamation-circle"></i> {error}
+              </div>
+            )}
+            
             <div className="form-group">
               <label htmlFor="name">Name</label>
               <input
@@ -120,9 +212,34 @@ const Contact: React.FC = () => {
                 required
               ></textarea>
             </div>
+            
+            {/* Hidden inputs */}
+            <input 
+              type="hidden" 
+              name="to_email" 
+              value="kcpersonalacc@gmail.com" 
+            />
+            
+            <input 
+              type="hidden" 
+              name="time" 
+              value={currentTime} 
+            />
 
-            <button type="submit" className="btn btn-primary submit-btn">
-              <i className="fas fa-paper-plane"></i> Send Message
+            <button 
+              type="submit" 
+              className={`btn btn-primary submit-btn ${loading ? 'loading' : ''}`}
+              disabled={loading}
+            >
+              {loading ? (
+                <>
+                  <i className="fas fa-spinner fa-spin"></i> Sending...
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-paper-plane"></i> Send Message
+                </>
+              )}
             </button>
           </form>
         </div>

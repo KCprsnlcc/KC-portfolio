@@ -1,0 +1,9 @@
+{
+  "template_id": "template_example123",
+  "template_name": "Portfolio Contact Form",
+  "subject": "New message from {{name}} via portfolio",
+  "reply_to": "{{email}}",
+  "body": {
+    "html": "<div style=\"font-family: system-ui, sans-serif, Arial; font-size: 12px\">\n  <div>A message by {{name}} has been received. Kindly respond at your earliest convenience.</div>\n  <div\n    style=\"\n      margin-top: 20px;\n      padding: 15px 0;\n      border-width: 1px 0;\n      border-style: dashed;\n      border-color: lightgrey;\n    \"\n  >\n    <table role=\"presentation\">\n      <tr>\n        <td style=\"vertical-align: top\">\n          <div\n            style=\"\n              padding: 6px 10px;\n              margin: 0 10px;\n              background-color: aliceblue;\n              border-radius: 5px;\n              font-size: 26px;\n            \"\n            role=\"img\"\n          >\n            &#x1F464;\n          </div>\n        </td>\n        <td style=\"vertical-align: top\">\n          <div style=\"color: #2c3e50; font-size: 16px\">\n            <strong>{{name}}</strong>\n          </div>\n          <div style=\"color: #cccccc; font-size: 13px\">{{time}}</div>\n          <p style=\"font-size: 16px\">{{message}}</p>\n        </td>\n      </tr>\n    </table>\n  </div>\n</div>"
+  }
+} 
