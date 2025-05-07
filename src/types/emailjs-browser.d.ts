@@ -17,7 +17,16 @@ declare module '@emailjs/browser' {
     ): Promise<EmailJSResponseStatus>;
   }
   
-  const emailjs: EmailJSInit & EmailJSSendForm;
+  interface EmailJSSend {
+    send(
+      serviceId: string,
+      templateId: string,
+      templateParams: Record<string, any>,
+      publicKey: string
+    ): Promise<EmailJSResponseStatus>;
+  }
+  
+  const emailjs: EmailJSInit & EmailJSSendForm & EmailJSSend;
   
   export default emailjs;
 } 

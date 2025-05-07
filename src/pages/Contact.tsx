@@ -97,15 +97,15 @@ const Contact: React.FC = () => {
       });
       setCurrentTime(`${formattedDate} at ${formattedTime}`);
       
-      // Prepare form data with reCAPTCHA
-      if (formRef.current) {
-        // Add recaptcha value to form data
-        const recaptchaInput = document.createElement('input');
-        recaptchaInput.type = 'hidden';
-        recaptchaInput.name = 'g-recaptcha-response';
-        recaptchaInput.value = recaptchaValue;
-        formRef.current.appendChild(recaptchaInput);
-      }
+      // Create a form data object with all needed values including recaptcha
+      const templateParams = {
+        name: formData.name,
+        email: formData.email,
+        message: formData.message,
+        time: currentTime,
+        to_email: 'kcpersonalacc@gmail.com',
+        'g-recaptcha-response': recaptchaValue
+      };
       
       // Debug info
       console.log('Sending with credentials:', {
@@ -113,15 +113,14 @@ const Contact: React.FC = () => {
         templateId: EMAILJS_CONFIG.templateId,
         publicKey: EMAILJS_CONFIG.publicKey ? 
           `${EMAILJS_CONFIG.publicKey.substring(0, 4)}...` : 'undefined',
-        formRef: formRef.current ? 'Form element exists' : 'No form element',
         recaptcha: recaptchaValue ? 'Verified' : 'Not verified'
       });
       
-      // Use EmailJS to send the form
-      const result = await emailjs.sendForm(
+      // Use EmailJS to send the form directly with templateParams instead of form element
+      const result = await emailjs.send(
         EMAILJS_CONFIG.serviceId,
         EMAILJS_CONFIG.templateId,
-        formRef.current!,
+        templateParams,
         EMAILJS_CONFIG.publicKey
       );
 
@@ -136,14 +135,6 @@ const Contact: React.FC = () => {
         // Reset reCAPTCHA
         recaptchaRef.current?.reset();
         setRecaptchaValue(null);
-        
-        // Remove the temporary recaptcha input
-        if (formRef.current) {
-          const recaptchaInput = formRef.current.querySelector('input[name="g-recaptcha-response"]');
-          if (recaptchaInput) {
-            formRef.current.removeChild(recaptchaInput);
-          }
-        }
       } else {
         throw new Error(`Failed to send message: Status ${result.status}`);
       }
@@ -158,14 +149,6 @@ const Contact: React.FC = () => {
       setRecaptchaValue(null);
     } finally {
       setLoading(false);
-      
-      // Clean up the temporary input if it exists
-      if (formRef.current) {
-        const recaptchaInput = formRef.current.querySelector('input[name="g-recaptcha-response"]');
-        if (recaptchaInput) {
-          formRef.current.removeChild(recaptchaInput);
-        }
-      }
     }
   };
 
