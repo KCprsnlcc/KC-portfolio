@@ -183,4 +183,115 @@
   .contact-form-container {
     padding: 1.5rem;
   }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 3rem 0;
+  }
+  
+  .contact-header {
+    margin-bottom: 2rem;
+  }
+  
+  .contact-intro {
+    font-size: 1rem;
+  }
+  
+  .contact-content {
+    gap: 2rem;
+  }
+  
+  .contact-info {
+    padding: 1.25rem;
+  }
+  
+  .info-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .contact-item {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+  }
+  
+  .contact-item i {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin-right: 0.75rem;
+  }
+  
+  .contact-details h4 {
+    font-size: 1rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.9rem;
+  }
+  
+  .social-media {
+    margin-top: 1.25rem;
+  }
+  
+  .social-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .social-icons a {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+    margin-right: 0.5rem;
+  }
+  
+  .contact-form {
+    padding: 1.25rem;
+  }
+  
+  .form-title {
+    font-size: 1.4rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .form-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .form-group textarea {
+    min-height: 120px;
+  }
+  
+  .submit-button {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .contact-item i {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .social-icons a {
+    width: 30px;
+    height: 30px;
+    font-size: 0.9rem;
+  }
+  
+  .form-title, .info-title {
+    font-size: 1.3rem;
+  }
 } 

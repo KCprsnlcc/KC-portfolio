@@ -29,7 +29,7 @@ const Projects: React.FC = () => {
       id: 3,
       title: 'ExpenseMate',
       description: 'A budget management desktop application that helps users visualize spending trends and maintain financial discipline.',
-      tags: ['Finance', 'Desktop App', 'Data Visualization'],
+      tags: ['Finance', 'Android App', 'Java', 'Expense Tracker','Data Visualization'],
       github: 'https://github.com/KCprsnlcc/ExpenseMate'
     },
     {
@@ -50,7 +50,7 @@ const Projects: React.FC = () => {
       id: 6,
       title: 'AI Chatbot',
       description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
-      tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot'],
+      tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot', 'Typescript', 'React'],
       github: 'https://github.com/KCprsnlcc/chatbot-app'
     }
   ];

@@ -133,6 +133,7 @@
   .projects-grid {
     grid-template-columns: 1fr;
     gap: 2rem;
+    padding: 0 1rem;
   }
   
   .project-card {
@@ -141,5 +142,57 @@
   
   .project-card h2 {
     font-size: 1.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .projects-section {
+    padding: 3rem 0;
+  }
+  
+  .projects-header {
+    margin-bottom: 2rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .projects-intro {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+  }
+  
+  .projects-grid {
+    gap: 1.5rem;
+    padding: 0 0.5rem;
+  }
+  
+  .project-card {
+    padding: 1.25rem;
+  }
+  
+  .project-card h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .project-card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .project-tags {
+    gap: 0.5rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .project-tag {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+  }
+  
+  .project-link {
+    font-size: 0.9rem;
   }
 } 
