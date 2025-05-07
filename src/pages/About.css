@@ -276,4 +276,96 @@
     padding: 0.3rem 0.8rem;
     font-size: 0.75rem;
   }
+}
+
+@media (max-width: 400px) {
+  .about-section {
+    padding: 2.5rem 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .about-text h2,
+  .about-experience h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .about-text h2 i,
+  .about-experience h2 i {
+    font-size: 1.2rem;
+  }
+  
+  .about-text p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .profile-image {
+    width: 130px;
+    height: 130px;
+  }
+  
+  .profile-name {
+    font-size: 1.4rem;
+  }
+  
+  .profile-title {
+    font-size: 0.8rem;
+  }
+  
+  .social-links a {
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  .about-details {
+    padding: 1rem;
+  }
+  
+  .tabs {
+    overflow-x: auto;
+    padding-bottom: 5px;
+  }
+  
+  .tabs button {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    white-space: nowrap;
+  }
+  
+  .tab-content h3 {
+    font-size: 1.2rem;
+  }
+  
+  .info-item strong,
+  .info-item span {
+    font-size: 0.85rem;
+  }
+  
+  .skill-bar-title {
+    font-size: 0.85rem;
+  }
+  
+  .experience-card {
+    padding: 1rem;
+  }
+  
+  .education-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .event-list strong {
+    font-size: 1rem;
+  }
+  
+  .event-list p {
+    font-size: 0.85rem;
+  }
+  
+  .skill-tag {
+    font-size: 0.8rem;
+    padding: 0.4rem 0.8rem;
+  }
 } 

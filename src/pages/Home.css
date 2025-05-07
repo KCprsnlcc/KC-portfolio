@@ -470,4 +470,117 @@
     font-size: 0.8rem;
     padding: 0.4rem 0.8rem;
   }
+}
+
+@media (max-width: 400px) {
+  .hero-container {
+    min-height: 550px;
+  }
+  
+  .hero-content {
+    padding: 1.5rem 0;
+  }
+  
+  .hero-text {
+    margin-bottom: 2rem;
+  }
+  
+  .hero-title {
+    font-size: 2.2rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.3rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+    margin-bottom: 1.25rem;
+    padding: 0 0.5rem;
+  }
+  
+  .image-container {
+    width: 220px;
+    height: 220px;
+  }
+  
+  .floating-icons i {
+    font-size: 1.8rem;
+  }
+  
+  .floating-icons i:nth-child(1) {
+    top: 25%;
+    left: 25%;
+  }
+  
+  .floating-icons i:nth-child(2) {
+    top: 20%;
+    right: 25%;
+  }
+  
+  .floating-icons i:nth-child(3) {
+    bottom: 25%;
+    left: 20%;
+  }
+  
+  .floating-icons i:nth-child(4) {
+    bottom: 20%;
+    right: 20%;
+  }
+  
+  .home-services,
+  .home-skills {
+    padding: 2.5rem 0;
+  }
+  
+  .service-card {
+    padding: 1.25rem;
+  }
+  
+  .service-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 1rem;
+  }
+  
+  .service-icon i {
+    font-size: 1.5rem;
+  }
+  
+  .service-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .service-card p {
+    font-size: 0.9rem;
+  }
+  
+  .skill-category {
+    padding: 1.25rem;
+  }
+  
+  .skill-category h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .skill-pills span {
+    font-size: 0.75rem;
+    padding: 0.3rem 0.7rem;
+  }
+  
+  .mouse {
+    width: 25px;
+    height: 40px;
+  }
+  
+  .wheel {
+    width: 5px;
+    height: 5px;
+  }
+  
+  .scroll-text {
+    font-size: 0.7rem;
+  }
 } 

@@ -294,4 +294,82 @@
   .form-title, .info-title {
     font-size: 1.3rem;
   }
+}
+
+@media (max-width: 400px) {
+  .contact-section {
+    padding: 2.5rem 0;
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+  }
+  
+  .contact-header {
+    margin-bottom: 1.75rem;
+  }
+  
+  .contact-intro {
+    font-size: 0.9rem;
+  }
+  
+  .contact-content {
+    gap: 1.5rem;
+  }
+  
+  .info-card {
+    padding: 1rem;
+  }
+  
+  .info-card h2 {
+    font-size: 1.2rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .info-card p {
+    font-size: 0.9rem;
+  }
+  
+  .info-card .social-links a {
+    width: 32px;
+    height: 32px;
+  }
+  
+  .contact-form-container {
+    padding: 1rem;
+  }
+  
+  .contact-form {
+    gap: 1rem;
+  }
+  
+  .form-group label {
+    font-size: 0.85rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.6rem 0.75rem;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+  }
+  
+  .submit-btn {
+    padding: 0.6rem 1.25rem;
+    font-size: 0.85rem;
+  }
+  
+  .contact-item i {
+    margin-right: 0.5rem;
+  }
+  
+  .contact-details h4 {
+    font-size: 0.9rem;
+  }
+  
+  .contact-details p {
+    font-size: 0.85rem;
+  }
 } 

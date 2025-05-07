@@ -148,4 +148,42 @@
   .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
   }
+}
+
+@media (max-width: 400px) {
+  .header {
+    padding: 0.5rem 0;
+  }
+  
+  .logo-text {
+    font-size: 1.3rem;
+  }
+  
+  .menu-toggle {
+    padding: 0.4rem;
+  }
+  
+  .menu-toggle span {
+    width: 22px;
+    height: 2px;
+    margin: 4px 0;
+  }
+  
+  .nav-menu {
+    width: 220px;
+  }
+  
+  .nav-list li {
+    width: 85%;
+  }
+  
+  .nav-list li a {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  .nav-list li a i {
+    font-size: 0.8rem;
+    margin-right: 0.4rem;
+  }
 } 

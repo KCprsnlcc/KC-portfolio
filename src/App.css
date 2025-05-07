@@ -121,3 +121,18 @@ body {
     font-size: 0.95rem;
   }
 }
+
+@media (max-width: 400px) {
+  .container {
+    padding: 0 0.75rem;
+  }
+  
+  .section-title {
+    font-size: 1.6rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
