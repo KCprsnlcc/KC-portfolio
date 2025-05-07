@@ -291,7 +291,7 @@ const Contact: React.FC = () => {
 
             <button 
               type="submit" 
-              className={`btn btn-primary submit-btn ${loading ? 'loading' : ''}`}
+              className={`submit-btn ${loading ? 'loading' : ''}`}
               disabled={loading || !recaptchaValue}
             >
               {loading ? (
