@@ -15,7 +15,7 @@
   font-size: 1.2rem;
   max-width: 700px;
   margin: 0 auto;
-  color: #666;
+  color: var(--text-color);
 }
 
 .contact-content {
@@ -31,10 +31,10 @@
 }
 
 .info-card {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 1.5rem;
   border-radius: 15px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--card-shadow);
   transition: var(--transition);
 }
 
@@ -47,7 +47,7 @@
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: var(--dark-color);
+  color: var(--text-color);
   display: flex;
   align-items: center;
 }
@@ -58,7 +58,7 @@
 }
 
 .info-card p {
-  color: #555;
+  color: var(--text-color);
   font-size: 1.1rem;
 }
 
@@ -96,10 +96,10 @@
 }
 
 .contact-form-container {
-  background-color: white;
+  background-color: var(--card-bg);
   padding: 2.5rem;
   border-radius: 20px;
-  box-shadow: var(--box-shadow);
+  box-shadow: var(--card-shadow);
 }
 
 .contact-form {
@@ -116,17 +116,19 @@
 
 .form-group label {
   font-weight: 600;
-  color: var(--dark-color);
+  color: var(--text-color);
 }
 
 .form-group input,
 .form-group textarea {
   padding: 0.75rem 1rem;
-  border: 1px solid #e1e1e1;
+  border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
   transition: var(--transition);
+  background-color: var(--bg-color);
+  color: var(--text-color);
 }
 
 .form-group input:focus,
@@ -249,18 +251,18 @@
   .info-card h2 {
     font-size: 1.3rem;
   }
-  
+
   .contact-form-container {
-    padding: 1.5rem;
+    padding: 2rem;
   }
   
   .recaptcha-container {
-    justify-content: center;
+    transform: scale(0.9);
     transform-origin: center;
   }
   
   .submit-btn {
-    padding: 0.7rem 1.8rem;
+    padding: 0.7rem 1.75rem;
   }
 }
 
@@ -278,28 +280,29 @@
   }
   
   .contact-content {
-    gap: 2rem;
+    gap: 1.5rem;
   }
   
   .contact-info {
-    padding: 1.25rem;
+    gap: 1rem;
   }
   
   .info-title {
-    font-size: 1.4rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   
   .contact-item {
     margin-bottom: 1rem;
-    padding-bottom: 1rem;
+    padding-left: 2.5rem;
   }
   
   .contact-item i {
     width: 35px;
     height: 35px;
     font-size: 1rem;
-    margin-right: 0.75rem;
+    left: 0;
+    top: 0.2rem;
   }
   
   .contact-details h4 {
@@ -311,7 +314,7 @@
   }
   
   .social-media {
-    margin-top: 1.25rem;
+    margin-top: 1.5rem;
   }
   
   .social-title {
@@ -323,28 +326,26 @@
     width: 35px;
     height: 35px;
     font-size: 1rem;
-    margin-right: 0.5rem;
+    margin: 0 0.25rem;
   }
   
   .contact-form {
-    padding: 1.25rem;
+    gap: 1.25rem;
   }
   
   .form-title {
-    font-size: 1.4rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
   }
   
   .form-group label {
-    font-size: 0.9rem;
-    margin-bottom: 0.25rem;
+    font-size: 0.95rem;
   }
   
   .form-group input,
   .form-group textarea {
-    padding: 0.75rem;
-    font-size: 0.9rem;
-    margin-bottom: 1rem;
+    padding: 0.6rem 0.9rem;
+    font-size: 0.95rem;
   }
   
   .form-group textarea {
@@ -352,51 +353,52 @@
   }
   
   .submit-btn {
-    padding: 0.65rem 1.5rem;
-    font-size: 0.9rem;
+    padding: 0.6rem 1.5rem;
+    font-size: 0.95rem;
   }
   
   .recaptcha-container {
     transform: scale(0.85);
-    transform-origin: center;
-    margin-bottom: 0.5rem;
+    transform-origin: center left;
+    margin-bottom: -10px;
   }
 }
 
 @media (max-width: 380px) {
   .contact-item i {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     font-size: 0.9rem;
+    top: 0.25rem;
   }
   
   .social-icons a {
-    width: 30px;
-    height: 30px;
+    width: 32px;
+    height: 32px;
     font-size: 0.9rem;
   }
   
   .form-title, .info-title {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
   }
   
   .recaptcha-container {
-    transform: scale(0.75);
-    transform-origin: center;
-    margin-bottom: 0.25rem;
+    transform: scale(0.77);
+    transform-origin: center left;
+    margin-bottom: -15px;
   }
   
   .submit-btn {
-    padding: 0.6rem 1.4rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 400px) {
   .contact-section {
     padding: 2.5rem 0;
-    padding-left: 0.75rem;
-    padding-right: 0.75rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
   
   .contact-header {
@@ -404,33 +406,32 @@
   }
   
   .contact-intro {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .contact-content {
-    gap: 1.5rem;
+    gap: 1.25rem;
   }
   
   .info-card {
-    padding: 1rem;
+    padding: 1.25rem;
   }
   
   .info-card h2 {
     font-size: 1.2rem;
-    margin-bottom: 0.75rem;
   }
   
   .info-card p {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
   
   .info-card .social-links a {
-    width: 32px;
-    height: 32px;
+    width: 36px;
+    height: 36px;
   }
   
   .contact-form-container {
-    padding: 1rem;
+    padding: 1.5rem;
   }
   
   .contact-form {
@@ -438,41 +439,18 @@
   }
   
   .form-group label {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
   }
   
   .form-group input,
   .form-group textarea {
-    padding: 0.6rem 0.75rem;
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-  }
-  
-  .form-group textarea {
-    min-height: 100px;
-  }
-  
-  .submit-btn {
-    padding: 0.6rem 1.25rem;
-    font-size: 0.85rem;
-  }
-  
-  .contact-item i {
-    margin-right: 0.5rem;
-  }
-  
-  .contact-details h4 {
+    padding: 0.6rem 0.8rem;
     font-size: 0.9rem;
   }
   
-  .contact-details p {
-    font-size: 0.85rem;
-  }
-  
   .form-status {
-    padding: 0.6rem 0.75rem;
-    font-size: 0.85rem;
-    margin-bottom: 1rem;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
   }
   
   .form-status i {
