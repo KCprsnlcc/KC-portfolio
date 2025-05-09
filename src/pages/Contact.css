@@ -244,6 +244,14 @@
     font-size: 1.1rem;
   }
   
+  .contact-info {
+    order: 2;
+  }
+  
+  .contact-form-container {
+    order: 1;
+  }
+  
   .info-card {
     padding: 1.25rem;
   }
@@ -257,8 +265,15 @@
   }
   
   .recaptcha-container {
-    transform: scale(0.9);
-    transform-origin: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+  }
+  
+  .recaptcha-container > div {
+    margin: 0 auto;
   }
   
   .submit-btn {
@@ -358,9 +373,12 @@
   }
   
   .recaptcha-container {
-    transform: scale(0.85);
-    transform-origin: center left;
-    margin-bottom: -10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform: scale(0.9);
+    transform-origin: center;
   }
 }
 
@@ -455,5 +473,14 @@
   
   .form-status i {
     font-size: 1rem;
+  }
+  
+  .recaptcha-container {
+    transform: scale(0.85);
+    margin-left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
   }
 } 

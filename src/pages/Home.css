@@ -397,6 +397,12 @@
   .home-skills {
     padding: 4rem 0;
   }
+  
+  .scroll-indicator {
+    bottom: 15px;
+    z-index: 10;
+    opacity: 0.8;
+  }
 }
 
 @media (max-width: 480px) {
@@ -470,6 +476,11 @@
   .skill-pills span {
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 10px;
+    transform: translateX(-50%) scale(0.9);
   }
 }
 
@@ -581,5 +592,10 @@
   
   .scroll-text {
     font-size: 0.7rem;
+  }
+  
+  .scroll-indicator {
+    bottom: 5px;
+    transform: translateX(-50%) scale(0.8);
   }
 } 
