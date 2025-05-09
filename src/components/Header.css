@@ -139,6 +139,13 @@
   display: none;
 }
 
+/* This prevents horizontal scrolling on the body */
+html, body {
+  overflow-x: hidden;
+  width: 100%;
+  position: relative;
+}
+
 @media (max-width: 768px) {
   .mobile-actions {
     display: flex;
@@ -161,7 +168,7 @@
   .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -100vw; /* Use viewport width instead of percentage */
     width: 250px;
     height: 100vh;
     background-color: var(--card-bg);
@@ -171,10 +178,14 @@
     align-items: center;
     justify-content: center;
     z-index: 99;
+    visibility: hidden; /* Hide it completely when not active */
+    opacity: 0;
   }
   
   .nav-menu.active {
     right: 0;
+    visibility: visible;
+    opacity: 1;
   }
   
   .nav-list {
@@ -204,6 +215,11 @@
   
   .menu-toggle.active span:nth-child(3) {
     transform: rotate(-45deg) translate(5px, -6px);
+  }
+  
+  /* Add body class when menu is open to prevent background scrolling */
+  body.menu-open {
+    overflow: hidden;
   }
 }
 

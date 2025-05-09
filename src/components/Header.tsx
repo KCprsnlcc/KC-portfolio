@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
 import { ThemeContext } from '../contexts/ThemeContext';
@@ -7,6 +7,25 @@ const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
   const { theme, toggleTheme } = useContext(ThemeContext);
+  
+  // Effect to prevent background scrolling when menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.classList.add('menu-open');
+    } else {
+      document.body.classList.remove('menu-open');
+    }
+    
+    // Cleanup when component unmounts
+    return () => {
+      document.body.classList.remove('menu-open');
+    };
+  }, [isOpen]);
+  
+  // Effect to close menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);

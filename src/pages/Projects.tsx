@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Projects.css';
 
 interface Project {
@@ -12,6 +12,36 @@ interface Project {
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
+  
+  // Check if the device is mobile
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    // Initial check
+    checkMobile();
+    
+    // Add event listener for window resize
+    window.addEventListener('resize', checkMobile);
+    
+    // Cleanup
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Prevent body scrolling when preview is open
+  useEffect(() => {
+    if (selectedProject) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, [selectedProject]);
 
   const projects: Project[] = [
     {
@@ -89,6 +119,7 @@ const Projects: React.FC = () => {
                   alt={`${project.title} screenshot`} 
                   className="project-image"
                   onClick={() => openPreview(project)}
+                  loading="lazy"
                 />
                 <div className="project-image-overlay">
                   <button className="preview-btn" onClick={() => openPreview(project)}>
@@ -117,20 +148,33 @@ const Projects: React.FC = () => {
 
       {selectedProject && (
         <div className="image-preview-overlay" onClick={closePreview}>
-          <div className="image-preview-container" onClick={(e) => e.stopPropagation()}>
-            <button className="close-preview" onClick={closePreview}>
+          <div 
+            className={`image-preview-container ${isMobile ? 'mobile-preview' : ''}`} 
+            onClick={(e) => e.stopPropagation()}
+          >
+            <button 
+              className="close-preview" 
+              onClick={closePreview}
+              aria-label="Close preview"
+            >
               <i className="fas fa-times"></i>
             </button>
             <img 
               src={selectedProject.image} 
               alt={`${selectedProject.title} screenshot`} 
               className="preview-image"
+              loading="eager"
             />
             <div className="preview-details">
               <h3>{selectedProject.title}</h3>
               <p>{selectedProject.description}</p>
               {selectedProject.github && (
-                <a href={selectedProject.github} target="_blank" rel="noopener noreferrer" className="project-link">
+                <a 
+                  href={selectedProject.github} 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="project-link preview-link"
+                >
                   <i className="fab fa-github"></i> View on GitHub
                 </a>
               )}

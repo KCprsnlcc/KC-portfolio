@@ -184,6 +184,7 @@
   align-items: center;
   justify-content: center;
   padding: 2rem;
+  overflow-y: auto;
 }
 
 .image-preview-container {
@@ -195,6 +196,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
+  max-height: 90vh;
 }
 
 .close-preview {
@@ -229,6 +231,7 @@
 
 .preview-details {
   padding: 1.5rem 2rem;
+  overflow-y: auto;
 }
 
 .preview-details h3 {
@@ -240,6 +243,31 @@
 .preview-details p {
   margin-bottom: 1.5rem;
   color: var(--text-color);
+}
+
+.preview-link {
+  display: inline-flex;
+  justify-content: center;
+  width: auto;
+  padding: 0.6rem 1.2rem;
+  background-color: rgba(104, 158, 75, 0.1);
+  border-radius: 50px;
+  transition: var(--transition);
+}
+
+.preview-link:hover {
+  background-color: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+.preview-link i {
+  margin-right: 0.5rem;
+}
+
+.mobile-preview {
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
 }
 
 @media (max-width: 1200px) {
@@ -275,8 +303,15 @@
     font-size: 1.6rem;
   }
 
+  .image-preview-overlay {
+    padding: 1rem;
+    align-items: flex-start;
+  }
+  
   .image-preview-container {
     width: 95%;
+    max-height: 85vh;
+    margin: 2rem 0;
   }
 
   .preview-image {
@@ -289,6 +324,17 @@
 
   .preview-details h3 {
     font-size: 1.6rem;
+  }
+  
+  .mobile-preview .preview-image {
+    pointer-events: none; /* Prevents unwanted touch interactions */
+  }
+  
+  .preview-link {
+    padding: 0.6rem 1.2rem;
+    width: 100%;
+    justify-content: center;
+    margin-top: 0.5rem;
   }
 }
 
@@ -343,6 +389,23 @@
     font-size: 0.9rem;
   }
 
+  .image-preview-overlay {
+    padding: 0.5rem;
+  }
+  
+  .image-preview-container {
+    width: 100%;
+    margin: 1.5rem 0;
+    border-radius: 10px;
+  }
+  
+  .close-preview {
+    top: 0.75rem;
+    right: 0.75rem;
+    width: 36px;
+    height: 36px;
+  }
+
   .preview-image {
     max-height: 250px;
   }
@@ -354,6 +417,15 @@
   .preview-details h3 {
     font-size: 1.4rem;
     margin-bottom: 0.75rem;
+  }
+  
+  .preview-details p {
+    font-size: 0.95rem;
+  }
+  
+  .preview-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -407,6 +479,45 @@
   }
   
   .project-link {
+    font-size: 0.85rem;
+  }
+
+  .image-preview-overlay {
+    padding: 0.25rem;
+  }
+  
+  .image-preview-container {
+    margin: 1rem 0;
+  }
+  
+  .close-preview {
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 32px;
+    height: 32px;
+    font-size: 0.9rem;
+  }
+  
+  .preview-image {
+    max-height: 200px;
+  }
+  
+  .preview-details {
+    padding: 0.75rem;
+  }
+  
+  .preview-details h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .preview-details p {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .preview-link {
+    padding: 0.4rem 0.9rem;
     font-size: 0.85rem;
   }
 } 
