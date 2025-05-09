@@ -30,15 +30,29 @@ const Header: React.FC = () => {
             </Link>
           </div>
           
-          <button 
-            className={`menu-toggle ${isOpen ? 'active' : ''}`} 
-            onClick={toggleMenu}
-            aria-label="Toggle navigation menu"
-          >
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+          <div className="mobile-actions">
+            <button 
+              className="theme-toggle-btn mobile-theme-toggle" 
+              onClick={toggleTheme}
+              aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+            >
+              {theme === 'light' ? (
+                <i className="fas fa-moon"></i>
+              ) : (
+                <i className="fas fa-sun"></i>
+              )}
+            </button>
+            
+            <button 
+              className={`menu-toggle ${isOpen ? 'active' : ''}`} 
+              onClick={toggleMenu}
+              aria-label="Toggle navigation menu"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div>
           
           <div className={`nav-menu ${isOpen ? 'active' : ''}`}>
             <ul className="nav-list">
@@ -62,7 +76,7 @@ const Header: React.FC = () => {
                   <i className="fas fa-envelope"></i> Contact
                 </Link>
               </li>
-              <li className="theme-toggle-item">
+              <li className="theme-toggle-item desktop-only">
                 <button 
                   className="theme-toggle-btn" 
                   onClick={toggleTheme}
