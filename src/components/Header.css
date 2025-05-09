@@ -1,6 +1,6 @@
 .header {
-  background-color: rgba(255, 255, 255, 0.95);
-  box-shadow: var(--box-shadow);
+  background-color: var(--card-bg);
+  box-shadow: var(--card-shadow);
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -36,7 +36,7 @@
 }
 
 .logo-text:hover {
-  color: var(--dark-color);
+  color: var(--text-color);
 }
 
 .nav-menu {
@@ -59,7 +59,7 @@
   display: flex;
   align-items: center;
   padding: 0.5rem 1rem;
-  color: var(--dark-color);
+  color: var(--text-color);
   font-weight: 500;
   border-radius: 50px;
   transition: var(--transition);
@@ -74,7 +74,40 @@
 .nav-list li a:hover, 
 .nav-list li.active a {
   color: var(--primary-color);
-  background-color: rgba(94, 96, 206, 0.1);
+  background-color: rgba(104, 158, 75, 0.1);
+}
+
+.theme-toggle-item {
+  margin-left: 0.5rem !important;
+}
+
+.theme-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  color: var(--text-color);
+  border: 2px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+  font-size: 1rem;
+}
+
+.theme-toggle-btn:hover {
+  background-color: var(--primary-color);
+  color: white;
+  border-color: var(--primary-color);
+}
+
+[data-theme='dark'] .theme-toggle-btn {
+  color: #ffb74d;
+}
+
+[data-theme='dark'] .theme-toggle-btn:hover {
+  color: white;
 }
 
 .menu-toggle {
@@ -91,7 +124,7 @@
   width: 25px;
   height: 3px;
   margin: 5px 0;
-  background-color: var(--dark-color);
+  background-color: var(--text-color);
   border-radius: 3px;
   transition: var(--transition);
 }
@@ -107,7 +140,7 @@
     right: -100%;
     width: 250px;
     height: 100vh;
-    background-color: white;
+    background-color: var(--card-bg);
     box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
     transition: 0.4s ease;
     display: flex;
@@ -135,6 +168,10 @@
     padding: 0.75rem 1rem;
     width: 100%;
     justify-content: flex-start;
+  }
+
+  .theme-toggle-item {
+    margin-top: 1.5rem !important;
   }
   
   .menu-toggle.active span:nth-child(1) {
@@ -185,5 +222,11 @@
   .nav-list li a i {
     font-size: 0.8rem;
     margin-right: 0.4rem;
+  }
+
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+    font-size: 0.9rem;
   }
 } 

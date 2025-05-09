@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Header.css';
+import { ThemeContext } from '../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
@@ -59,6 +61,19 @@ const Header: React.FC = () => {
                 <Link to="/contact" onClick={closeMenu}>
                   <i className="fas fa-envelope"></i> Contact
                 </Link>
+              </li>
+              <li className="theme-toggle-item">
+                <button 
+                  className="theme-toggle-btn" 
+                  onClick={toggleTheme}
+                  aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}
+                >
+                  {theme === 'light' ? (
+                    <i className="fas fa-moon"></i>
+                  ) : (
+                    <i className="fas fa-sun"></i>
+                  )}
+                </button>
               </li>
             </ul>
           </div>

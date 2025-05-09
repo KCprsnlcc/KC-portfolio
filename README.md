@@ -6,8 +6,10 @@ This repository contains my professional portfolio website, which showcases my s
 
 - **Home Page**: Introduction and overview
 - **About**: Information about my background, skills, and experience
-- **Projects**: Showcase of my latest and most significant work
+- **Projects**: Showcase of my latest and most significant work with image previews
 - **Contact**: Ways to get in touch with me
+- **Dark/Light Mode**: Toggle between dark and light themes
+- **Project Image Previews**: View larger previews of project screenshots
 
 ## Technologies Used
 
@@ -15,6 +17,7 @@ This repository contains my professional portfolio website, which showcases my s
 - TypeScript
 - React Router for navigation
 - CSS for styling
+- Context API for theme management
 
 ## Getting Started
 
@@ -53,6 +56,7 @@ This portfolio is built with a focus on:
 - Responsive design for all devices
 - Accessibility
 - Performance optimization
+- Theme customization (Dark/Light mode)
 
 ## Deployment
 
@@ -65,9 +69,7 @@ This generates optimized files in the `build` folder that are ready for deployme
 
 ## Future Enhancements
 
-- Preview Project Images
 - Blog section for sharing insights and experiences
-- Dark/light mode toggle
 - AI Chatbot Assistant 
 - More interactive project demos
 - Integration with GitHub API to automatically update project information
