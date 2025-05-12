@@ -42,7 +42,7 @@ const Home: React.FC = () => {
     // Initialize typing effect
     if (typedRef.current && typeof window.Typed !== 'undefined') {
       const typed = new window.Typed(typedRef.current, {
-        strings: ['Software Developer', 'AI Enthusiast', 'Web Developer', 'Machine Learning Engineer'],
+        strings: ['Software Developer', 'AI Enthusiast'],
         typeSpeed: 50,
         backSpeed: 30,
         backDelay: 2000,
