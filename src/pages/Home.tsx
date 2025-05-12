@@ -13,50 +13,8 @@ declare global {
 const Home: React.FC = () => {
   const typedRef = useRef<HTMLSpanElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
-  const cursorRef = useRef<HTMLDivElement>(null);
-  const cursorDotRef = useRef<HTMLDivElement>(null);
-  
-  // State to track cursor position
-  const [cursorPosition, setCursorPosition] = useState({ x: -100, y: -100 });
   
   useEffect(() => {
-    // Custom cursor effect
-    const handleMouseMove = (e: MouseEvent) => {
-      setCursorPosition({ x: e.clientX, y: e.clientY });
-      
-      if (cursorRef.current) {
-        cursorRef.current.style.left = `${e.clientX}px`;
-        cursorRef.current.style.top = `${e.clientY}px`;
-      }
-      
-      if (cursorDotRef.current) {
-        cursorDotRef.current.style.left = `${e.clientX}px`;
-        cursorDotRef.current.style.top = `${e.clientY}px`;
-      }
-    };
-    
-    // Add hover effect for interactive elements
-    const handleMouseOver = () => {
-      if (cursorRef.current) {
-        cursorRef.current.classList.add('cursor-grow');
-      }
-    };
-    
-    const handleMouseOut = () => {
-      if (cursorRef.current) {
-        cursorRef.current.classList.remove('cursor-grow');
-      }
-    };
-    
-    document.addEventListener('mousemove', handleMouseMove);
-    
-    // Add hover effect to all interactive elements
-    const interactiveElements = document.querySelectorAll('a, button, .interactive-pill, .service-card');
-    interactiveElements.forEach(element => {
-      element.addEventListener('mouseover', handleMouseOver);
-      element.addEventListener('mouseout', handleMouseOut);
-    });
-    
     // Initialize particles background
     if (typeof window.particlesJS !== 'undefined') {
       window.particlesJS('particles-js', {
@@ -93,11 +51,6 @@ const Home: React.FC = () => {
       
       return () => {
         typed.destroy();
-        document.removeEventListener('mousemove', handleMouseMove);
-        interactiveElements.forEach(element => {
-          element.removeEventListener('mouseover', handleMouseOver);
-          element.removeEventListener('mouseout', handleMouseOut);
-        });
       };
     }
 
@@ -113,14 +66,6 @@ const Home: React.FC = () => {
         ease: 'power2.out'
       });
     }
-    
-    return () => {
-      document.removeEventListener('mousemove', handleMouseMove);
-      interactiveElements.forEach(element => {
-        element.removeEventListener('mouseover', handleMouseOver);
-        element.removeEventListener('mouseout', handleMouseOut);
-      });
-    };
   }, []);
 
   // Interactive card hover effect
@@ -147,10 +92,6 @@ const Home: React.FC = () => {
 
   return (
     <section className="home-section">
-      {/* Custom cursor */}
-      <div className="cursor" ref={cursorRef}></div>
-      <div className="cursor-dot" ref={cursorDotRef}></div>
-      
       <div className="hero-container">
         <div id="particles-js" className="particles-container"></div>
         <div className="container">

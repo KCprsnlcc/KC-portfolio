@@ -681,47 +681,25 @@
 
 /* Custom cursor */
 .cursor {
-  position: fixed;
-  width: 40px;
-  height: 40px;
-  border: 2px solid var(--primary-color);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  transition: width 0.3s, height 0.3s, border-color 0.3s;
-  z-index: 9999;
-  opacity: 0.7;
-  mix-blend-mode: difference;
+  display: none;
 }
 
 .cursor-dot {
-  position: fixed;
-  width: 8px;
-  height: 8px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
-  z-index: 9999;
-  transition: transform 0.1s;
+  display: none;
 }
 
 .cursor-grow {
-  width: 60px;
-  height: 60px;
-  background-color: rgba(104, 158, 75, 0.1);
-  border-color: rgba(104, 158, 75, 0.5);
-  mix-blend-mode: normal;
+  display: none;
 }
 
 /* Hide default cursor when custom cursor is active */
 body:has(.cursor) {
-  cursor: none;
+  cursor: auto;
 }
 
 body:has(.cursor) a,
 body:has(.cursor) button,
 body:has(.cursor) .interactive-pill,
 body:has(.cursor) .service-card {
-  cursor: none;
+  cursor: auto;
 } 
