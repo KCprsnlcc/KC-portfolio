@@ -178,7 +178,7 @@ const Home: React.FC = () => {
               <i className="fas fa-database"></i>
             </div>
             <h3>Full-Stack Solutions</h3>
-            <p>Creating end-to-end applications with database integration (MySQL, SQLite) and RESTful APIs.</p>
+            <p>Creating end-to-end applications with database integration (PostgreSQL, MySQL, SQLite) and RESTful APIs.</p>
           </div>
         </div>
       </div>
@@ -223,6 +223,7 @@ const Home: React.FC = () => {
               <span className="interactive-pill">VS Code</span>
               <span className="interactive-pill">Jupyter</span>
               <span className="interactive-pill">Hugging Face Hub</span>
+              <span className="interactive-pill">PostgreSQL</span>
               <span className="interactive-pill">MySQL</span>
               <span className="interactive-pill">SQLite</span>
               <span className="interactive-pill">RESTful APIs</span>

@@ -1,0 +1,260 @@
+.hackathon-carousel {
+  width: 100%;
+  margin: 2rem 0;
+  position: relative;
+}
+
+.hackathon-carousel .carousel-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+  touch-action: pan-y;
+}
+
+.hackathon-carousel .carousel-track-container {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: var(--card-shadow);
+}
+
+.hackathon-carousel .carousel-track {
+  display: flex;
+  transition: transform 0.5s ease;
+  width: 100%;
+  height: 100%;
+}
+
+.hackathon-carousel .carousel-slide {
+  min-width: 100%;
+  flex: 1 0 100%;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.hackathon-card {
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hackathon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.hackathon-image-container {
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  position: relative;
+}
+
+.hackathon-image-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to bottom, rgba(0,0,0,0) 70%, rgba(0,0,0,0.1) 100%);
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.hackathon-card:hover .hackathon-image-container::before {
+  opacity: 1;
+}
+
+.hackathon-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.hackathon-card:hover .hackathon-image {
+  transform: scale(1.05);
+}
+
+.hackathon-info {
+  padding: 1.5rem;
+  flex: 1;
+}
+
+.hackathon-info h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.hackathon-card:hover .hackathon-info h3 {
+  color: var(--primary-color);
+}
+
+.hackathon-date {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+}
+
+.hackathon-description {
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.hackathon-carousel .carousel-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+  opacity: 0.8;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.hackathon-carousel .carousel-button:hover {
+  opacity: 1;
+  background-color: var(--secondary-color);
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hackathon-carousel .carousel-button:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(104, 158, 75, 0.5);
+}
+
+.hackathon-carousel .prev-button {
+  left: 10px;
+}
+
+.hackathon-carousel .next-button {
+  right: 10px;
+}
+
+.hackathon-carousel .carousel-indicators {
+  display: flex;
+  justify-content: center;
+  margin-top: 1.5rem;
+}
+
+.hackathon-carousel .indicator-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #ccc;
+  margin: 0 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.hackathon-carousel .indicator-dot.active {
+  background-color: var(--primary-color);
+  transform: scale(1.2);
+}
+
+.hackathon-carousel .indicator-dot:hover {
+  background-color: var(--primary-color);
+  opacity: 0.7;
+}
+
+.hackathon-carousel .indicator-dot:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(104, 158, 75, 0.5);
+}
+
+.no-hackathons {
+  text-align: center;
+  padding: 2rem;
+  background-color: var(--card-bg);
+  border-radius: 15px;
+  color: var(--text-color);
+  box-shadow: var(--card-shadow);
+}
+
+/* Animation for slide transitions */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.hackathon-carousel .carousel-slide {
+  animation: fadeIn 0.5s ease forwards;
+}
+
+/* Responsive styles */
+@media (max-width: 992px) {
+  .hackathon-image-container {
+    height: 180px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hackathon-image-container {
+    height: 160px;
+  }
+  
+  .hackathon-carousel .carousel-button {
+    width: 35px;
+    height: 35px;
+  }
+  
+  .hackathon-info h3 {
+    font-size: 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hackathon-image-container {
+    height: 140px;
+  }
+  
+  .hackathon-info h3 {
+    font-size: 1.1rem;
+  }
+  
+  .hackathon-info p {
+    font-size: 0.9rem;
+  }
+  
+  .hackathon-carousel .carousel-button {
+    width: 30px;
+    height: 30px;
+  }
+  
+  .hackathon-carousel .indicator-dot {
+    width: 10px;
+    height: 10px;
+    margin: 0 4px;
+  }
+} 

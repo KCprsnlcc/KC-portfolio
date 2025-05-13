@@ -12,9 +12,11 @@
 }
 
 .about-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 .about-text h2,
@@ -40,8 +42,72 @@
   color: var(--text-color);
 }
 
-.education-item {
+.about-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--card-shadow);
   margin-bottom: 2rem;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Education Timeline Styling */
+.education-timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.education-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+.education-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateX(5px);
+}
+
+.education-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.education-item:hover::before {
+  background-color: var(--secondary-color);
+  transform: scale(1.2);
 }
 
 .education-item h3 {
@@ -49,6 +115,41 @@
   font-weight: 600;
   margin-bottom: 0.5rem;
   color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.education-item:hover h3 {
+  color: var(--primary-color);
+}
+
+.education-item .education-date {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.education-item .achievement {
+  background-color: rgba(104, 158, 75, 0.1);
+  border-left: 3px solid var(--primary-color);
+  padding: 0.75rem 1rem;
+  margin-top: 0.75rem;
+  border-radius: 0 8px 8px 0;
+  transition: all 0.3s ease;
+}
+
+.education-item .achievement:hover {
+  background-color: rgba(104, 158, 75, 0.15);
+  transform: translateX(5px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+.education-item .achievement-title {
+  font-weight: 600;
+  color: var(--primary-color);
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
 .certification-list {
@@ -60,6 +161,11 @@
 .certification-list li {
   margin-bottom: 0.5rem;
   position: relative;
+  transition: transform 0.3s ease;
+}
+
+.certification-list li:hover {
+  transform: translateX(5px);
 }
 
 .about-text a {
@@ -73,13 +179,35 @@
   color: var(--secondary-color);
 }
 
+.link-hover {
+  display: inline-block;
+  position: relative;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
+}
+
 .experience-card {
   background-color: var(--card-bg);
   padding: 2rem;
   border-radius: 20px;
   box-shadow: var(--card-shadow);
   margin-bottom: 2rem;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .experience-card:hover {
@@ -98,6 +226,29 @@
   position: relative;
 }
 
+.interests-list .interest-item {
+  transition: transform 0.3s ease;
+}
+
+.interests-list .interest-item:hover {
+  transform: translateX(5px);
+}
+
+.event-list {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  color: var(--text-color);
+}
+
+.event-list li {
+  margin-bottom: 0.5rem;
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.event-list li:hover {
+  transform: translateX(5px);
+}
 .skills-categories {
   display: flex;
   flex-direction: column;
@@ -124,41 +275,25 @@
   border-radius: 50px;
   font-size: 0.9rem;
   font-weight: 500;
-  transition: var(--transition);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  user-select: none;
 }
 
 .skill-tag:hover {
   background-color: var(--primary-color);
   color: white;
   transform: translateY(-3px);
-}
-
-.event-list {
-  list-style: none;
-  padding: 0;
-  margin-bottom: 2rem;
-}
-
-.event-list li {
-  margin-bottom: 1.5rem;
-}
-
-.event-list strong {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-size: 1.1rem;
-  color: var(--text-color);
-}
-
-.event-list p {
-  margin: 0;
-  color: var(--text-color);
+  box-shadow: 0 5px 15px rgba(104, 158, 75, 0.3);
 }
 
 @media (max-width: 992px) {
+  .about-section {
+    padding: 5rem 0;
+  }
+  
   .about-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.5rem;
   }
 }
 
@@ -171,13 +306,39 @@
     margin-bottom: 2.5rem;
   }
   
-  .experience-card {
+  .about-card {
     padding: 1.5rem;
   }
   
   .about-text h2,
   .about-experience h2 {
     font-size: 1.6rem;
+  }
+  
+  .certificate-showcase,
+  .hackathon-showcase {
+    margin-top: 1.5rem;
+    padding-top: 1.25rem;
+  }
+  
+  .certificate-showcase h3,
+  .hackathon-showcase h3 {
+    font-size: 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .education-timeline {
+    padding-left: 1.75rem;
+  }
+  
+  .education-item::before {
+    left: -1.75rem;
+    width: 14px;
+    height: 14px;
+  }
+  
+  .education-item .achievement {
+    padding: 0.6rem 0.8rem;
   }
 }
 
@@ -276,6 +437,34 @@
     font-size: 0.8rem;
     padding: 0.3rem 0.6rem;
   }
+  
+  .education-timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .education-item::before {
+    left: -1.5rem;
+    width: 12px;
+    height: 12px;
+    top: 0.4rem;
+  }
+  
+  .education-timeline::before {
+    left: 6px;
+  }
+  
+  .education-item .achievement {
+    padding: 0.5rem 0.75rem;
+    margin-top: 0.6rem;
+  }
+  
+  .education-item .achievement-title {
+    font-size: 0.95rem;
+  }
+  
+  .education-item .achievement p {
+    font-size: 0.85rem;
+  }
 }
 
 @media (max-width: 400px) {
@@ -348,7 +537,7 @@
     font-size: 0.85rem;
   }
   
-  .experience-card {
+  .about-card {
     padding: 1.25rem;
   }
   
@@ -368,4 +557,50 @@
     padding: 0.4rem 0.8rem;
     font-size: 0.8rem;
   }
+}
+
+.certificate-showcase {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(104, 158, 75, 0.2);
+}
+
+.certificate-showcase h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.certificate-showcase h3::before {
+  content: '\f559';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 0.75rem;
+  color: var(--primary-color);
+}
+
+.hackathon-showcase {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(104, 158, 75, 0.2);
+}
+
+.hackathon-showcase h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--text-color);
+  display: flex;
+  align-items: center;
+}
+
+.hackathon-showcase h3::before {
+  content: '\f091';
+  font-family: 'Font Awesome 5 Free';
+  font-weight: 900;
+  margin-right: 0.75rem;
+  color: var(--primary-color);
 } 
