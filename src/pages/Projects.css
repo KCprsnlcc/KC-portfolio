@@ -14,6 +14,29 @@
   color: var(--text-color);
 }
 
+.section-title {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  color: var(--text-color);
+  position: relative;
+  padding-bottom: 0.5rem;
+  display: inline-block;
+}
+
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  height: 4px;
+  width: 50px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -28,14 +51,15 @@
   border-radius: 15px;
   box-shadow: var(--card-shadow);
   padding: 2rem;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .project-card:hover {
-  transform: translateY(-10px);
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -85,18 +109,41 @@
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   display: flex;
   align-items: center;
+  position: relative;
+  overflow: hidden;
 }
 
 .preview-btn i {
   margin-right: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .preview-btn:hover {
   background-color: #52763d;
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.preview-btn:hover i {
+  transform: scale(1.2);
+}
+
+.preview-btn::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.preview-btn:hover::after {
+  left: 100%;
 }
 
 .project-card h2 {
@@ -106,6 +153,11 @@
   color: var(--text-color);
   position: relative;
   padding-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover h2 {
+  color: var(--primary-color);
 }
 
 .project-card h2::after {
@@ -117,6 +169,11 @@
   width: 40px;
   background: var(--primary-color);
   border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.project-card:hover h2::after {
+  width: 60px;
 }
 
 .project-card p {
@@ -145,12 +202,21 @@
   border-radius: 50px;
   font-size: 0.85rem;
   font-weight: 500;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .project-tag:hover {
   background-color: var(--primary-color);
   color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.5rem;
 }
 
 .project-link {
@@ -168,7 +234,34 @@
 
 .project-link:hover {
   color: var(--secondary-color);
-  transform: translateX(5px);
+}
+
+.live-link {
+  color: var(--secondary-color);
+}
+
+.live-link:hover {
+  color: var(--primary-color);
+}
+
+.link-hover {
+  display: inline-block;
+  position: relative;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--secondary-color);
+  transition: width 0.3s ease;
+}
+
+.link-hover:hover::after {
+  width: 100%;
 }
 
 /* Image Preview Overlay */
@@ -185,6 +278,16 @@
   justify-content: center;
   padding: 2rem;
   overflow-y: auto;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .image-preview-container {
@@ -197,6 +300,20 @@
   display: flex;
   flex-direction: column;
   max-height: 90vh;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+  animation: scaleIn 0.3s ease;
+  transform-origin: center;
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
 }
 
 .close-preview {
@@ -215,18 +332,35 @@
   cursor: pointer;
   z-index: 10;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.close-preview::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.close-preview:hover::after {
+  left: 100%;
 }
 
 .close-preview:hover {
   background-color: #52763d;
-  transform: scale(1.1);
+  transform: scale(1.1) rotate(90deg);
 }
 
 .preview-image {
   width: 100%;
   max-height: 500px;
   object-fit: cover;
+  transition: transform 0.5s ease;
 }
 
 .preview-details {
@@ -238,31 +372,85 @@
   font-size: 1.8rem;
   margin-bottom: 1rem;
   color: var(--text-color);
+  position: relative;
+  padding-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.preview-details h3::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 40px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
 }
 
 .preview-details p {
   margin-bottom: 1.5rem;
   color: var(--text-color);
+  line-height: 1.7;
+}
+
+.preview-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
 .preview-link {
   display: inline-flex;
   justify-content: center;
-  width: auto;
+  align-items: center;
   padding: 0.6rem 1.2rem;
   background-color: rgba(104, 158, 75, 0.1);
   border-radius: 50px;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview-link i {
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.preview-link:hover i {
+  transform: scale(1.2);
+}
+
+.preview-link::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.preview-link:hover::after {
+  left: 100%;
 }
 
 .preview-link:hover {
   background-color: var(--primary-color);
   color: white;
   transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.preview-link i {
-  margin-right: 0.5rem;
+.preview-link.live-link {
+  background-color: rgba(var(--secondary-color-rgb), 0.1);
+}
+
+.preview-link.live-link:hover {
+  background-color: var(--secondary-color);
 }
 
 .mobile-preview {
@@ -620,11 +808,33 @@
   background-color: rgba(255, 255, 255, 0.5);
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-image-indicators .indicator::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+}
+
+.project-image-indicators .indicator:hover::after {
+  left: 100%;
+}
+
+.project-image-indicators .indicator:hover {
+  background-color: rgba(255, 255, 255, 0.8);
 }
 
 .project-image-indicators .indicator.active {
   background-color: var(--primary-color);
   transform: scale(1.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Preview Carousel Styles */
@@ -650,11 +860,28 @@
   justify-content: center;
   cursor: pointer;
   z-index: 10;
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.carousel-nav::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.carousel-nav:hover::after {
+  left: 100%;
 }
 
 .carousel-nav:hover {
   background-color: var(--primary-color);
+  transform: translateY(-50%) scale(1.1);
 }
 
 .carousel-nav.prev {
@@ -684,11 +911,29 @@
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.carousel-indicators .indicator::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  transition: all 0.5s ease;
+}
+
+.carousel-indicators .indicator:hover::after {
+  left: 100%;
 }
 
 .carousel-indicators .indicator.active {
   background-color: var(--primary-color);
   transform: scale(1.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
 }
 
 /* Mobile Styles for Carousel */

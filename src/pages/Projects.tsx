@@ -7,6 +7,7 @@ interface Project {
   description: string;
   tags: string[];
   github?: string;
+  liveUrl?: string;
   images: string[];
 }
 
@@ -26,6 +27,7 @@ const Projects: React.FC = () => {
       description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
       tags: ['Python', 'Time-Series', 'ARIMA', 'Prophet', 'Data Analytics'],
       github: 'https://github.com/KCprsnlcc/AI-Forecast',
+      liveUrl: 'https://ai-forecast-demo.herokuapp.com',
       images: [
         '/images/projects/ai-forecast.jpg',
         '/images/projects/ai-forecast-1.jpg',
@@ -38,6 +40,7 @@ const Projects: React.FC = () => {
       description: 'A Django web application integrating emotion analysis, sentiment-aware dashboards, user authentication, chatbot responses, and tweet classification.',
       tags: ['Django', 'Python', 'Sentiment Analysis', 'NLP', 'Web App'],
       github: 'https://github.com/KCprsnlcc/PilarEaseDJO',
+      liveUrl: 'https://pilarease-demo.netlify.app',
       images: [
         '/images/projects/pilareasedjo.jpg',
         '/images/projects/pilareasedjo-1.jpg',
@@ -50,6 +53,7 @@ const Projects: React.FC = () => {
       description: 'A basic cross-platform file manager built with PySide6. Supports file browsing, search, image preview, and basic file operations.',
       tags: ['File Manager', 'Desktop App', 'Python', 'PySide6', 'File Management'],
       github: 'https://github.com/KCprsnlcc/File-Manager',
+      liveUrl: 'https://github.com/KCprsnlcc/File-Manager/releases',
       images: [
         '/images/projects/filemanager.jpg',
         '/images/projects/filemanager-1.jpg',
@@ -62,6 +66,7 @@ const Projects: React.FC = () => {
       description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
       tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
       github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
+      liveUrl: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer/releases',
       images: [
         '/images/projects/webcam-emotion.jpg',
         '/images/projects/webcam-emotion-1.jpg',
@@ -74,6 +79,7 @@ const Projects: React.FC = () => {
       description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
       tags: ['Productivity', 'Time Management', 'Python', 'Calculator', 'Tkinter'],
       github: 'https://github.com/KCprsnlcc/DTR-Calculator',
+      liveUrl: 'https://github.com/KCprsnlcc/DTR-Calculator/releases',
       images: [
         '/images/projects/dtr-calculator.jpg',
         '/images/projects/dtr-calculator-1.jpg',
@@ -86,6 +92,7 @@ const Projects: React.FC = () => {
       description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
       tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot', 'Typescript', 'React'],
       github: 'https://github.com/KCprsnlcc/chatbot-app',
+      liveUrl: 'https://kc-ai-chatbot.netlify.app',
       images: [
         '/images/projects/ai-chatbot.jpg',
         '/images/projects/ai-chatbot-1.jpg',
@@ -242,6 +249,28 @@ const Projects: React.FC = () => {
     }));
   };
 
+  // Interactive card hover effect
+  const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const tiltX = (x - centerX) / centerX * 10;
+    const tiltY = (y - centerY) / centerY * 10;
+    
+    card.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg) scale3d(1.05, 1.05, 1.05)`;
+  };
+  
+  const handleCardLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.transition = 'all 0.5s ease';
+  };
+
   return (
     <section className="projects-section">
       <div className="container">
@@ -252,7 +281,14 @@ const Projects: React.FC = () => {
         
         <div className="projects-grid">
           {projects.map((project) => (
-            <div className="project-card" key={project.id} data-aos="fade-up" data-aos-delay={project.id * 100}>
+            <div 
+              className="project-card" 
+              key={project.id} 
+              data-aos="fade-up" 
+              data-aos-delay={project.id * 100}
+              onMouseMove={handleCardHover}
+              onMouseLeave={handleCardLeave}
+            >
               <div className="project-image-container">
                 <div className="project-carousel">
                   {project.images.map((image, index) => (
@@ -304,11 +340,18 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              {project.github && (
-                <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link">
-                  <i className="fab fa-github"></i> View on GitHub
-                </a>
-              )}
+              <div className="project-links">
+                {project.github && (
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link link-hover">
+                    <i className="fab fa-github"></i> View on GitHub
+                  </a>
+                )}
+                {project.liveUrl && (
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link link-hover">
+                    <i className="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           ))}
         </div>
@@ -378,16 +421,28 @@ const Projects: React.FC = () => {
             <div className="preview-details">
               <h3>{selectedProject.title}</h3>
               <p>{selectedProject.description}</p>
-              {selectedProject.github && (
-                <a 
-                  href={selectedProject.github} 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  className="project-link preview-link"
-                >
-                  <i className="fab fa-github"></i> View on GitHub
-                </a>
-              )}
+              <div className="preview-links">
+                {selectedProject.github && (
+                  <a 
+                    href={selectedProject.github} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-link preview-link link-hover"
+                  >
+                    <i className="fab fa-github"></i> View on GitHub
+                  </a>
+                )}
+                {selectedProject.liveUrl && (
+                  <a 
+                    href={selectedProject.liveUrl} 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    className="project-link preview-link live-link link-hover"
+                  >
+                    <i className="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                )}
+              </div>
             </div>
           </div>
         </div>
