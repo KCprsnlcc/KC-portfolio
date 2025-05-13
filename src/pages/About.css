@@ -603,4 +603,137 @@
   font-weight: 900;
   margin-right: 0.75rem;
   color: var(--primary-color);
+}
+
+/* Experience Timeline Styling */
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+  margin-top: 1.5rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 0;
+  height: 100%;
+  width: 2px;
+  background-color: var(--primary-color);
+}
+
+.experience-item {
+  position: relative;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.experience-item:hover {
+  transform: translateX(5px);
+}
+
+.experience-item:last-child {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: -2rem;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  border: 3px solid var(--card-bg);
+  box-shadow: 0 0 0 2px var(--primary-color);
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover::before {
+  background-color: var(--secondary-color);
+  transform: scale(1.2);
+}
+
+.experience-item h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.experience-item:hover h3 {
+  color: var(--primary-color);
+}
+
+.experience-item .experience-date {
+  font-size: 0.9rem;
+  color: var(--primary-color);
+  font-weight: 500;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.experience-showcase {
+  margin-top: 2rem;
+  position: relative;
+  padding-top: 2rem;
+}
+
+.experience-showcase h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  display: inline-block;
+  padding-bottom: 10px;
+}
+
+.experience-showcase h3::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  height: 3px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
+}
+
+.experience-bullets {
+  margin-bottom: 0.75rem;
+  line-height: 1.6;
+}
+
+/* Additional responsive styles for experience section */
+@media (max-width: 768px) {
+  .experience-timeline {
+    padding-left: 1.5rem;
+  }
+  
+  .experience-item::before {
+    width: 12px;
+    height: 12px;
+    left: -1.5rem;
+  }
+  
+  .experience-timeline::before {
+    left: 5px;
+  }
+  
+  .experience-item .experience-description {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-item h3 {
+    font-size: 1.2rem;
+  }
+  
+  .experience-showcase h3 {
+    font-size: 1.3rem;
+  }
 } 

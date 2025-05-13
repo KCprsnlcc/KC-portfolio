@@ -2,8 +2,11 @@ import React, { useEffect, useRef } from 'react';
 import './About.css';
 import CertificateCarousel from '../components/CertificateCarousel';
 import HackathonCarousel from '../components/HackathonCarousel';
+// import ExperienceCarousel from '../components/ExperienceCarousel';
+import ExpCarousel from '../components/ExpCarousel';
 import { certificates } from '../data/certificates';
 import { hackathons } from '../data/hackathons';
+import { experiences } from '../data/experiences';
 
 declare global {
   interface Window {
@@ -121,8 +124,34 @@ const About: React.FC = () => {
               <HackathonCarousel hackathons={hackathons} />
             </div>
           </div>
-           
+          
           <div className="about-card" data-aos="fade-up" data-aos-delay="250" onMouseMove={handleCardHover} onMouseLeave={handleCardLeave}>
+            <h2><i className="fas fa-briefcase"></i> Experience</h2>
+            <div className="experience-timeline">
+              <div className="experience-item">
+                <h3>Computer Programmer</h3>
+                <span className="experience-date">Dec 2024 - Apr 2025 · 5 mos</span>
+                <p>Department of Health (Philippines) · Internship</p>
+                <p>Upper Calarian, Zamboanga City, Philippines · On-site</p>
+                <ul className="experience-bullets">
+                  <li>Developed and enhanced the Employee Management System (EMS) using Django, including modular HR features like Attendance Tracking, Leave Management, Personal Data Sheet (PDS) Management.</li>
+                  <li>Developed a custom-built Daily Time Record (DTR) Calculator using Python with Tkinter, enabling automatic computation of Supposed Time-In and Supposed Time-Out based on a formula provided by the Assistant Administrator.</li>
+                  <li>Created and maintained database models for employee records and attendance tracking, ensuring data accuracy and consistency. Converted legacy PHP-based modules into Django applications to modernize the system performance.</li>
+                  <li>Provided IT support across departments by resolving hardware, network, and software issues, and setting up workstations. Assisted staff during presentations and training sessions, ensuring smooth technical operations.</li>
+                  <li>Led requirements gathering sessions with other Interns, documented system specifications, and planned development cycles. Presented system proposals to stakeholders and managed the software development lifecycle from design to testing.</li>
+                </ul>
+              </div>
+            </div>
+            
+            {/* Experience Carousel - temporarily commented out */}
+            <div className="experience-showcase" data-aos="fade-up">
+              <h3>Featured Work</h3>
+              {/* <ExperienceCarousel experiences={experiences} /> */}
+              <ExpCarousel experiences={experiences} />
+            </div>
+          </div>
+           
+          <div className="about-card" data-aos="fade-up" data-aos-delay="300" onMouseMove={handleCardHover} onMouseLeave={handleCardLeave}>
             <h2><i className="fas fa-graduation-cap"></i> Education</h2>
             <div className="education-timeline">
               <div className="education-item">
