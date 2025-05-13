@@ -35,7 +35,9 @@
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: var(--card-shadow);
-  transition: var(--transition);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 .info-card:hover {
@@ -50,11 +52,39 @@
   color: var(--text-color);
   display: flex;
   align-items: center;
+  position: relative;
+  padding-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.info-card h2::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  width: 40px;
+  background: var(--primary-color);
+  border-radius: 2px;
+  transition: width 0.3s ease;
+}
+
+.info-card:hover h2 {
+  color: var(--primary-color);
+}
+
+.info-card:hover h2::after {
+  width: 60px;
 }
 
 .info-card h2 i {
   color: var(--primary-color);
   margin-right: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.info-card:hover h2 i {
+  transform: scale(1.2);
 }
 
 .info-card p {
@@ -66,6 +96,7 @@
   color: var(--primary-color);
   text-decoration: none;
   transition: var(--transition);
+  position: relative;
 }
 
 .info-card a:hover {
@@ -85,14 +116,60 @@
   height: 40px;
   background-color: rgba(104, 158, 75, 0.1);
   border-radius: 50%;
-  transition: var(--transition);
+  transition: all 0.3s ease;
   color: var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card .social-links a::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: -100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.info-card .social-links a:hover::after {
+  left: 100%;
 }
 
 .info-card .social-links a:hover {
   background-color: var(--primary-color);
   color: white;
-  transform: translateY(-3px);
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.link-hover {
+  position: relative;
+  display: inline-block;
+}
+
+.link-hover::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: var(--primary-color);
+  transform: scaleX(0);
+  transform-origin: bottom right;
+  transition: transform 0.3s ease;
+}
+
+.link-hover:hover::after {
+  transform: scaleX(1);
+  transform-origin: bottom left;
+}
+
+.social-link-hover {
+  position: relative;
+  display: inline-block;
 }
 
 .contact-form-container {
@@ -100,6 +177,34 @@
   padding: 2.5rem;
   border-radius: 20px;
   box-shadow: var(--card-shadow);
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.contact-form-container:hover {
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.form-submitted {
+  animation: formSuccess 0.6s ease;
+}
+
+@keyframes formSuccess {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-15px);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .contact-form {
@@ -112,27 +217,31 @@
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
+  position: relative;
 }
 
-.form-group label {
+.form-label {
   font-weight: 600;
   color: var(--text-color);
+  position: relative;
+  display: block;
+  margin-bottom: 0.25rem;
 }
 
-.form-group input,
-.form-group textarea {
+.input-field {
   padding: 0.75rem 1rem;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   font-size: 1rem;
   font-family: inherit;
-  transition: var(--transition);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
   background-color: var(--bg-color);
   color: var(--text-color);
+  position: relative;
+  width: 100%;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.input-field:focus {
   outline: none;
   border-color: var(--primary-color);
   box-shadow: 0 0 0 3px rgba(104, 158, 75, 0.1);
@@ -145,6 +254,18 @@
   display: flex;
   align-items: center;
   font-weight: 500;
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .form-status i {
@@ -168,6 +289,9 @@
   margin-bottom: 0rem;
   display: flex;
   justify-content: center;
+  transform: scale(0.75);
+  transform-origin: center left;
+  margin-left: -25px;
 }
 
 .submit-btn {
@@ -184,13 +308,13 @@
   border-radius: 50px;
   font-weight: 600;
   cursor: pointer;
-  transition: var(--transition);
+  transition: all 0.3s ease;
 }
 
 .submit-btn:hover {
   background-color: #52763d;
   transform: translateY(-3px);
-  box-shadow: var(--box-shadow);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
 }
 
 .submit-btn.loading {
@@ -205,6 +329,38 @@
 
 .submit-btn i.fa-spinner {
   animation: spin 1s linear infinite;
+}
+
+.submit-btn .btn-text {
+  position: relative;
+  z-index: 2;
+}
+
+.submit-btn .btn-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s ease;
+}
+
+.submit-btn:hover .btn-shine {
+  left: 100%;
+}
+
+.submit-btn i {
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover i {
+  transform: translateX(3px);
 }
 
 @keyframes spin {
@@ -248,10 +404,6 @@
     order: 2;
   }
   
-  .contact-form-container {
-    order: 1;
-  }
-  
   .info-card {
     padding: 1.25rem;
   }
@@ -259,25 +411,19 @@
   .info-card h2 {
     font-size: 1.3rem;
   }
-
+  
   .contact-form-container {
     padding: 2rem;
   }
   
   .recaptcha-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    overflow: hidden;
-  }
-  
-  .recaptcha-container > div {
-    margin: 0 auto;
+    transform: scale(0.9);
+    transform-origin: center left;
   }
   
   .submit-btn {
-    padding: 0.7rem 1.75rem;
+    width: 100%;
+    justify-content: center;
   }
 }
 
@@ -303,29 +449,29 @@
   }
   
   .info-title {
-    font-size: 1.25rem;
-    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
   }
   
   .contact-item {
-    margin-bottom: 1rem;
-    padding-left: 2.5rem;
+    flex-direction: column;
+    align-items: flex-start;
   }
   
   .contact-item i {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-    left: 0;
-    top: 0.2rem;
+    margin-right: 0;
+    margin-bottom: 0.5rem;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
   }
   
   .contact-details h4 {
-    font-size: 1rem;
+    font-size: 1.1rem;
   }
   
   .contact-details p {
-    font-size: 0.9rem;
+    font-size: 0.95rem;
   }
   
   .social-media {
@@ -333,7 +479,7 @@
   }
   
   .social-title {
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     margin-bottom: 1rem;
   }
   
@@ -341,7 +487,6 @@
     width: 35px;
     height: 35px;
     font-size: 1rem;
-    margin: 0 0.25rem;
   }
   
   .contact-form {
@@ -349,7 +494,7 @@
   }
   
   .form-title {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
   
@@ -359,7 +504,7 @@
   
   .form-group input,
   .form-group textarea {
-    padding: 0.6rem 0.9rem;
+    padding: 0.7rem 0.9rem;
     font-size: 0.95rem;
   }
   
@@ -368,26 +513,30 @@
   }
   
   .submit-btn {
-    padding: 0.6rem 1.5rem;
+    padding: 0.7rem 1.5rem;
     font-size: 0.95rem;
   }
   
   .recaptcha-container {
-    display: flex;
+    transform: scale(0.85);
+    transform-origin: center left;
+    margin-left: -15px;
+  }
+  
+  .info-card .social-links {
     justify-content: center;
-    align-items: center;
-    width: 100%;
-    transform: scale(0.9);
-    transform-origin: center;
   }
 }
 
 @media (max-width: 380px) {
   .contact-item i {
-    width: 32px;
-    height: 32px;
-    font-size: 0.9rem;
-    top: 0.25rem;
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+  
+  .contact-details h4 {
+    font-size: 1rem;
   }
   
   .social-icons a {
@@ -397,17 +546,17 @@
   }
   
   .form-title, .info-title {
-    font-size: 1.2rem;
+    font-size: 1.4rem;
   }
   
   .recaptcha-container {
-    transform: scale(0.77);
+    transform: scale(0.8);
     transform-origin: center left;
-    margin-bottom: -15px;
+    margin-left: -20px;
   }
   
   .submit-btn {
-    padding: 0.5rem 1.25rem;
+    padding: 0.6rem 1.2rem;
     font-size: 0.9rem;
   }
 }
@@ -415,12 +564,10 @@
 @media (max-width: 400px) {
   .contact-section {
     padding: 2.5rem 0;
-    padding-left: 1rem;
-    padding-right: 1rem;
   }
   
   .contact-header {
-    margin-bottom: 1.75rem;
+    margin-bottom: 1.5rem;
   }
   
   .contact-intro {
@@ -432,7 +579,7 @@
   }
   
   .info-card {
-    padding: 1.25rem;
+    padding: 1rem;
   }
   
   .info-card h2 {
@@ -440,12 +587,12 @@
   }
   
   .info-card p {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
   
   .info-card .social-links a {
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
   }
   
   .contact-form-container {
@@ -462,12 +609,12 @@
   
   .form-group input,
   .form-group textarea {
-    padding: 0.6rem 0.8rem;
+    padding: 0.65rem 0.85rem;
     font-size: 0.9rem;
   }
   
   .form-status {
-    padding: 0.6rem 0.8rem;
+    padding: 0.65rem 0.85rem;
     font-size: 0.9rem;
   }
   
@@ -476,11 +623,51 @@
   }
   
   .recaptcha-container {
-    transform: scale(0.85);
-    margin-left: 0;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 10px;
+    transform: scale(0.75);
+    transform-origin: center left;
+    margin-left: -25px;
+  }
+}
+
+/* Additional animation effects */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.info-card:hover .social-links a:hover i {
+  animation: pulse 0.6s ease infinite;
+}
+
+.submit-btn:active {
+  transform: scale(0.95);
+}
+
+.form-status.success, .form-status.error {
+  position: relative;
+  overflow: hidden;
+}
+
+.form-status.success::before, .form-status.error::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  animation: shine 1.5s infinite;
+}
+
+@keyframes shine {
+  to {
+    left: 100%;
   }
 } 

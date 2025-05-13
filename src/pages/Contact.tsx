@@ -39,6 +39,7 @@ const Contact: React.FC = () => {
   const formRef = useRef<HTMLFormElement>(null);
   const recaptchaRef = useRef<ReCAPTCHA>(null);
   const [currentTime, setCurrentTime] = useState('');
+  const [formSubmitted, setFormSubmitted] = useState(false);
 
   useEffect(() => {
     // Format current date and time
@@ -68,6 +69,28 @@ const Contact: React.FC = () => {
 
   const handleRecaptchaChange = (value: string | null) => {
     setRecaptchaValue(value);
+  };
+
+  // Interactive card hover effect
+  const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    
+    const centerX = rect.width / 2;
+    const centerY = rect.height / 2;
+    
+    const tiltX = (x - centerX) / centerX * 5;
+    const tiltY = (y - centerY) / centerY * 5;
+    
+    card.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg) scale3d(1.05, 1.05, 1.05)`;
+  };
+  
+  const handleCardLeave = (e: React.MouseEvent<HTMLDivElement>) => {
+    const card = e.currentTarget;
+    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.transition = 'all 0.5s ease';
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -126,6 +149,7 @@ const Contact: React.FC = () => {
 
       if (result.status === 200) {
         setSuccess(true);
+        setFormSubmitted(true);
         // Reset form
         setFormData({
           name: '',
@@ -135,6 +159,12 @@ const Contact: React.FC = () => {
         // Reset reCAPTCHA
         recaptchaRef.current?.reset();
         setRecaptchaValue(null);
+        
+        // Reset form submitted state after 5 seconds
+        setTimeout(() => {
+          setFormSubmitted(false);
+          setSuccess(false);
+        }, 5000);
       } else {
         throw new Error(`Failed to send message: Status ${result.status}`);
       }
@@ -163,41 +193,82 @@ const Contact: React.FC = () => {
       
       <div className="contact-content">
         <div className="contact-info" data-aos="fade-right" data-aos-delay="100">
-          <div className="info-card">
-            <h2><i className="fas fa-map-marker-alt"></i> Location</h2>
-            <p>Zamboanga City, Philippines</p>
-          </div>
-          
-          <div className="info-card">
-            <h2><i className="fas fa-envelope"></i> Email</h2>
-            <p><a href="mailto:kcpersonalacc@gmail.com">kcpersonalacc@gmail.com</a></p>
-          </div>
-          
-          <div className="info-card">
-            <h2><i className="fas fa-phone"></i> Phone</h2>
-            <p><a href="tel:+639949953785">+639949953785</a></p>
-          </div>
-          
-          <div className="info-card">
-            <h2><i className="fas fa-globe"></i> Social Profiles</h2>
-            <div className="social-links">
-              <a href="https://github.com/KCprsnlcc" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-                <i className="fab fa-github"></i>
-              </a>
-              <a href="https://www.linkedin.com/in/khadaffe-s-232199194/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-                <i className="fab fa-linkedin-in"></i>
-              </a>
-              <a href="https://web.facebook.com/Daff.Sulaiman/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
-                <i className="fab fa-facebook"></i>
-              </a>
-              <a href="https://m.me/Daff.Sulaiman?hash=AbYeTuN-aK38D32O&source=qr_link_share" target="_blank" rel="noopener noreferrer" aria-label="Messenger">
-                <i className="fab fa-facebook-messenger"></i>
-              </a>
+          {[
+            {
+              icon: "fas fa-map-marker-alt",
+              title: "Location",
+              content: "Zamboanga City, Philippines",
+              link: null
+            },
+            {
+              icon: "fas fa-envelope",
+              title: "Email",
+              content: "kcpersonalacc@gmail.com",
+              link: "mailto:kcpersonalacc@gmail.com"
+            },
+            {
+              icon: "fas fa-phone",
+              title: "Phone",
+              content: "+639949953785",
+              link: "tel:+639949953785"
+            },
+            {
+              icon: "fas fa-globe",
+              title: "Social Profiles",
+              content: null,
+              social: [
+                { icon: "fab fa-github", url: "https://github.com/KCprsnlcc", label: "GitHub" },
+                { icon: "fab fa-linkedin-in", url: "https://www.linkedin.com/in/khadaffe-s-232199194/", label: "LinkedIn" },
+                { icon: "fab fa-facebook", url: "https://web.facebook.com/Daff.Sulaiman/", label: "Facebook" },
+                { icon: "fab fa-facebook-messenger", url: "https://m.me/Daff.Sulaiman?hash=AbYeTuN-aK38D32O&source=qr_link_share", label: "Messenger" }
+              ]
+            }
+          ].map((item, index) => (
+            <div 
+              className="info-card" 
+              key={index} 
+              data-aos="fade-up" 
+              data-aos-delay={100 + index * 50}
+              onMouseMove={handleCardHover}
+              onMouseLeave={handleCardLeave}
+            >
+              <h2><i className={item.icon}></i> {item.title}</h2>
+              {item.content && (
+                <p>
+                  {item.link ? (
+                    <a href={item.link} className="link-hover">
+                      {item.content}
+                    </a>
+                  ) : (
+                    item.content
+                  )}
+                </p>
+              )}
+              {item.social && (
+                <div className="social-links">
+                  {item.social.map((social, idx) => (
+                    <a 
+                      href={social.url} 
+                      key={idx} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      aria-label={social.label}
+                      className="social-link-hover"
+                    >
+                      <i className={social.icon}></i>
+                    </a>
+                  ))}
+                </div>
+              )}
             </div>
-          </div>
+          ))}
         </div>
         
-        <div className="contact-form-container" data-aos="fade-left" data-aos-delay="200">
+        <div 
+          className={`contact-form-container ${formSubmitted ? 'form-submitted' : ''}`} 
+          data-aos="fade-left" 
+          data-aos-delay="200"
+        >
           <form ref={formRef} className="contact-form" onSubmit={handleSubmit}>
             {success && (
               <div className="form-status success">
@@ -211,44 +282,39 @@ const Contact: React.FC = () => {
               </div>
             )}
             
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                placeholder="Your Name"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                placeholder="Your Email"
-                required
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message">Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                value={formData.message}
-                onChange={handleChange}
-                placeholder="Your Message"
-                required
-              ></textarea>
-            </div>
+            {['name', 'email', 'message'].map((field, index) => (
+              <div 
+                className="form-group" 
+                key={field}
+                data-aos="fade-up" 
+                data-aos-delay={200 + index * 50}
+              >
+                <label htmlFor={field} className="form-label">{field.charAt(0).toUpperCase() + field.slice(1)}</label>
+                {field === 'message' ? (
+                  <textarea
+                    id={field}
+                    name={field}
+                    rows={5}
+                    value={formData[field as keyof FormData]}
+                    onChange={handleChange}
+                    placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                    required
+                    className="input-field"
+                  ></textarea>
+                ) : (
+                  <input
+                    type={field === 'email' ? 'email' : 'text'}
+                    id={field}
+                    name={field}
+                    value={formData[field as keyof FormData]}
+                    onChange={handleChange}
+                    placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
+                    required
+                    className="input-field"
+                  />
+                )}
+              </div>
+            ))}
             
             {/* Hidden inputs */}
             <input 
@@ -264,7 +330,11 @@ const Contact: React.FC = () => {
             />
             
             {/* Google reCAPTCHA */}
-            <div className="recaptcha-container">
+            <div 
+              className="recaptcha-container"
+              data-aos="fade-up" 
+              data-aos-delay="350"
+            >
               <ReCAPTCHA
                 ref={recaptchaRef}
                 sitekey={RECAPTCHA_SITE_KEY}
@@ -276,16 +346,21 @@ const Contact: React.FC = () => {
               type="submit" 
               className={`submit-btn ${loading ? 'loading' : ''}`}
               disabled={loading || !recaptchaValue}
+              data-aos="fade-up" 
+              data-aos-delay="400"
             >
-              {loading ? (
-                <>
-                  <i className="fas fa-spinner fa-spin"></i> Sending...
-                </>
-              ) : (
-                <>
-                  <i className="fas fa-paper-plane"></i> Send Message
-                </>
-              )}
+              <span className="btn-text">
+                {loading ? (
+                  <>
+                    <i className="fas fa-spinner fa-spin"></i> Sending...
+                  </>
+                ) : (
+                  <>
+                    <i className="fas fa-paper-plane"></i> Send Message
+                  </>
+                )}
+              </span>
+              <span className="btn-shine"></span>
             </button>
           </form>
         </div>

@@ -62,7 +62,7 @@ const Projects: React.FC = () => {
     },
     {
       id: 4,
-      title: 'WebcamEmotionMusicPlayer',
+      title: 'Webcam Emotion Music Player',
       description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
       tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
       github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
