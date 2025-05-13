@@ -245,7 +245,7 @@ const Contact: React.FC = () => {
                 </p>
               )}
               {item.social && (
-                <div className="social-links">
+            <div className="social-links">
                   {item.social.map((social, idx) => (
                     <a 
                       href={social.url} 
@@ -256,7 +256,7 @@ const Contact: React.FC = () => {
                       className="social-link-hover"
                     >
                       <i className={social.icon}></i>
-                    </a>
+              </a>
                   ))}
                 </div>
               )}
@@ -296,24 +296,24 @@ const Contact: React.FC = () => {
                     name={field}
                     rows={5}
                     value={formData[field as keyof FormData]}
-                    onChange={handleChange}
+                onChange={handleChange}
                     placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                    required
+                required
                     className="input-field"
                   ></textarea>
                 ) : (
-                  <input
+              <input
                     type={field === 'email' ? 'email' : 'text'}
                     id={field}
                     name={field}
                     value={formData[field as keyof FormData]}
-                    onChange={handleChange}
+                onChange={handleChange}
                     placeholder={`Your ${field.charAt(0).toUpperCase() + field.slice(1)}`}
-                    required
+                required
                     className="input-field"
-                  />
+              />
                 )}
-              </div>
+            </div>
             ))}
             
             {/* Hidden inputs */}
@@ -350,15 +350,15 @@ const Contact: React.FC = () => {
               data-aos-delay="400"
             >
               <span className="btn-text">
-                {loading ? (
-                  <>
-                    <i className="fas fa-spinner fa-spin"></i> Sending...
-                  </>
-                ) : (
-                  <>
-                    <i className="fas fa-paper-plane"></i> Send Message
-                  </>
-                )}
+              {loading ? (
+                <>
+                  <i className="fas fa-spinner fa-spin"></i> Sending...
+                </>
+              ) : (
+                <>
+                  <i className="fas fa-paper-plane"></i> Send Message
+                </>
+              )}
               </span>
               <span className="btn-shine"></span>
             </button>

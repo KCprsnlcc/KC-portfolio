@@ -19,13 +19,45 @@ const Projects: React.FC = () => {
   const [touchStart, setTouchStart] = useState<number>(0);
   const [touchEnd, setTouchEnd] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement>(null);
+  const [featuredImageIndex, setFeaturedImageIndex] = useState<number>(0);
+  
+  // Define the featured project
+  const featuredProject: Project = {
+    id: 2,
+    title: 'PilarEaseDJO',
+    description: 'A Django web application integrating emotion analysis, sentiment-aware dashboards, user authentication, chatbot responses, and tweet classification. This emotional platform was designed to enhance student support services through AI-powered sentiment analysis and interactive data visualization. The system provides administrators with real-time insights into student feedback and emotional trends, enabling more responsive and personalized support.',
+    tags: ['Django', 'Python', 'Sentiment Analysis', 'NLP', 'Web App', 'Data Visualization', 'Authentication', 'NLTK', 'PostgreSQL'],
+    github: 'https://github.com/KCprsnlcc/PilarEaseDJO',
+    liveUrl: 'https://pilarease-demo.netlify.app',
+    images: [
+      '/images/projects/pilareasedjo.jpg',
+      '/images/projects/pilareasedjo-1.jpg',
+      '/images/projects/pilareasedjo-2.jpg',
+      '/images/projects/pilareasedjo-3.jpg',
+      '/images/projects/pilareasedjo-4.jpg',
+      '/images/projects/pilareasedjo-5.jpg'
+    ]
+  };
   
   const projects: Project[] = [
+    {
+      id: 6,
+      title: 'AI Chatbot',
+      description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
+      tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot', 'Typescript', 'React'],
+      github: 'https://github.com/KCprsnlcc/chatbot-app',
+      liveUrl: 'https://chatbot-app-beryl-six.vercel.app/',
+      images: [
+        '/images/projects/ai-chatbot.jpg',
+        '/images/projects/ai-chatbot-1.jpg',
+        '/images/projects/ai-chatbot-2.jpg'
+      ]
+    },
     {
       id: 1,
       title: 'AI-Forecast',
       description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
-      tags: ['Python', 'Time-Series', 'ARIMA', 'Prophet', 'Data Analytics'],
+      tags: ['Python', 'Time-Series', 'PySide6', 'ARIMA', 'Prophet', 'Data Analytics'],
       github: 'https://github.com/KCprsnlcc/AI-Forecast',
       liveUrl: 'https://ai-forecast-demo.herokuapp.com',
       images: [
@@ -33,18 +65,18 @@ const Projects: React.FC = () => {
         '/images/projects/ai-forecast-1.jpg',
         '/images/projects/ai-forecast-2.jpg'
       ]
-    },  
+    },
     {
-      id: 2,
-      title: 'PilarEaseDJO',
-      description: 'A Django web application integrating emotion analysis, sentiment-aware dashboards, user authentication, chatbot responses, and tweet classification.',
-      tags: ['Django', 'Python', 'Sentiment Analysis', 'NLP', 'Web App'],
-      github: 'https://github.com/KCprsnlcc/PilarEaseDJO',
-      liveUrl: 'https://pilarease-demo.netlify.app',
+      id: 5,
+      title: 'DTR Calculator',
+      description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
+      tags: ['Productivity', 'Time Management', 'Python', 'Calculator', 'Tkinter'],
+      github: 'https://github.com/KCprsnlcc/DTR-Calculator',
+      liveUrl: 'https://github.com/KCprsnlcc/DTR-Calculator/releases',
       images: [
-        '/images/projects/pilareasedjo.jpg',
-        '/images/projects/pilareasedjo-1.jpg',
-        '/images/projects/pilareasedjo-2.jpg'
+        '/images/projects/dtr-calculator.jpg',
+        '/images/projects/dtr-calculator-1.jpg',
+        '/images/projects/dtr-calculator-2.jpg'
       ]
     },
     {
@@ -72,34 +104,11 @@ const Projects: React.FC = () => {
         '/images/projects/webcam-emotion-1.jpg',
         '/images/projects/webcam-emotion-2.jpg'
       ]
-    },
-    {
-      id: 5,
-      title: 'DTR Calculator',
-      description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
-      tags: ['Productivity', 'Time Management', 'Python', 'Calculator', 'Tkinter'],
-      github: 'https://github.com/KCprsnlcc/DTR-Calculator',
-      liveUrl: 'https://github.com/KCprsnlcc/DTR-Calculator/releases',
-      images: [
-        '/images/projects/dtr-calculator.jpg',
-        '/images/projects/dtr-calculator-1.jpg',
-        '/images/projects/dtr-calculator-2.jpg'
-      ]
-    },
-    {
-      id: 6,
-      title: 'AI Chatbot',
-      description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
-      tags: ['TensorFlow.js', 'NLP', 'Front-end', 'Chatbot', 'Typescript', 'React'],
-      github: 'https://github.com/KCprsnlcc/chatbot-app',
-      liveUrl: 'https://kc-ai-chatbot.netlify.app',
-      images: [
-        '/images/projects/ai-chatbot.jpg',
-        '/images/projects/ai-chatbot-1.jpg',
-        '/images/projects/ai-chatbot-2.jpg'
-      ]
     }
   ];
+  
+  // Filter out the featured project from the regular projects list
+  const regularProjects = projects.filter(project => project.id !== featuredProject.id);
   
   // Check if the device is mobile
   useEffect(() => {
@@ -116,6 +125,17 @@ const Projects: React.FC = () => {
     // Cleanup
     return () => window.removeEventListener('resize', checkMobile);
   }, []);
+  
+  // Auto-rotate featured project images
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setFeaturedImageIndex(prevIndex => 
+        (prevIndex + 1) % featuredProject.images.length
+      );
+    }, 5000);
+    
+    return () => clearInterval(interval);
+  }, [featuredProject.images.length]);
   
   // Prevent body scrolling when preview is open
   useEffect(() => {
@@ -165,7 +185,7 @@ const Projects: React.FC = () => {
   // Initialize project carousel states
   useEffect(() => {
     const initialStates: { [key: number]: number } = {};
-    projects.forEach(project => {
+    regularProjects.forEach(project => {
       initialStates[project.id] = 0;
     });
     setProjectCarouselStates(initialStates);
@@ -174,7 +194,7 @@ const Projects: React.FC = () => {
     const interval = setInterval(() => {
       setProjectCarouselStates(prevStates => {
         const newStates = { ...prevStates };
-        projects.forEach(project => {
+        regularProjects.forEach(project => {
           const currentIndex = prevStates[project.id] || 0;
           newStates[project.id] = (currentIndex + 1) % project.images.length;
         });
@@ -183,7 +203,7 @@ const Projects: React.FC = () => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, [projects]);
+  }, [regularProjects]);
 
   const openPreview = (project: Project) => {
     setSelectedProject(project);
@@ -271,6 +291,10 @@ const Projects: React.FC = () => {
     card.style.transition = 'all 0.5s ease';
   };
 
+  const changeFeaturedImage = (index: number) => {
+    setFeaturedImageIndex(index);
+  };
+
   return (
     <section className="projects-section">
       <div className="container">
@@ -279,8 +303,80 @@ const Projects: React.FC = () => {
           <p className="projects-intro">Showcasing my work in software development, AI, and machine learning.</p>
         </div>
         
+        {/* Featured Project */}
+        <div className="featured-project" data-aos="fade-up">
+          <h2 className="featured-label">Featured Project</h2>
+          <div className="featured-project-content">
+            <div className="featured-project-image-container">
+              <div className="featured-project-carousel">
+                {featuredProject.images.map((image, index) => (
+                  <img 
+                    key={index}
+                    src={image} 
+                    alt={`${featuredProject.title} screenshot ${index + 1}`} 
+                    className={`featured-project-image ${index === featuredImageIndex ? 'active' : ''}`}
+                    onClick={() => openPreview(featuredProject)}
+                    loading="lazy"
+                  />
+                ))}
+                <div className="featured-project-indicators">
+                  {featuredProject.images.map((_, index) => (
+                    <span 
+                      key={index} 
+                      className={`indicator ${index === featuredImageIndex ? 'active' : ''}`}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        changeFeaturedImage(index);
+                      }}
+                      onKeyPress={(e) => {
+                        if (e.key === 'Enter') {
+                          e.stopPropagation();
+                          changeFeaturedImage(index);
+                        }
+                      }}
+                      tabIndex={0}
+                      role="button"
+                      aria-label={`Show image ${index + 1} of project ${featuredProject.title}`}
+                    ></span>
+                  ))}
+                </div>
+              </div>
+              <div className="featured-project-overlay">
+                <button className="preview-btn" onClick={() => openPreview(featuredProject)}>
+                  <i className="fas fa-search-plus"></i> Preview
+                </button>
+              </div>
+            </div>
+            <div className="featured-project-details">
+              <h2>{featuredProject.title}</h2>
+              <p>{featuredProject.description}</p>
+              <div className="project-tags featured-tags">
+                {featuredProject.tags.map((tag, index) => (
+                  <span className="project-tag" key={index}>
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <div className="project-links featured-links">
+                {featuredProject.github && (
+                  <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="project-link link-hover">
+                    <i className="fab fa-github"></i> View on GitHub
+                  </a>
+                )}
+                {featuredProject.liveUrl && (
+                  <a href={featuredProject.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link link-hover">
+                    <i className="fas fa-external-link-alt"></i> Live Demo
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <h2 className="other-projects-title" data-aos="fade-up">Other Projects</h2>
+        
         <div className="projects-grid">
-          {projects.map((project) => (
+          {regularProjects.map((project) => (
             <div 
               className="project-card" 
               key={project.id} 
