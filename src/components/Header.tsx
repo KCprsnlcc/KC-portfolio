@@ -90,6 +90,11 @@ const Header: React.FC = () => {
                   <i className="fas fa-code"></i> Projects
                 </Link>
               </li>
+              <li className={isActive('/blog')}>
+                <Link to="/blog" onClick={closeMenu}>
+                  <i className="fas fa-blog"></i> Blog
+                </Link>
+              </li>
               <li className={isActive('/contact')}>
                 <Link to="/contact" onClick={closeMenu}>
                   <i className="fas fa-envelope"></i> Contact

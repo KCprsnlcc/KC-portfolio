@@ -113,7 +113,7 @@ const About: React.FC = () => {
             <li> BlueCode Hackathon '25: Developed a functional prototype addressing real-time data visualization challenges.</li>
             <li> Google I/O Extended 2023 & 2024: Attended Google-led workshops on open-source technologies and development tooling.</li>
             </ul>
-            <p>View my complete hackathon & conference experiences: <a href="#" target="_blank" rel="noopener noreferrer" className="link-hover">Blog Section</a></p>
+            <p>View my complete hackathon & conference experiences: <a href="/blog" className="link-hover">Blog Section</a></p>
             
             {/* Hackathon Carousel */}
             <div className="hackathon-showcase" data-aos="fade-up">
