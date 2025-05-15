@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Modal from './Modal';
+import { PrivacyPolicy, TermsOfService } from './LegalContent';
 import './Footer.css';
 
 const Footer: React.FC = () => {
+  const [showPrivacyPolicy, setShowPrivacyPolicy] = useState(false);
+  const [showTerms, setShowTerms] = useState(false);
   const currentYear = new Date().getFullYear();
   
   return (
@@ -24,7 +28,7 @@ const Footer: React.FC = () => {
               <a href="https://web.facebook.com/Daff.Sulaiman/" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
                 <i className="fab fa-facebook"></i>
               </a>
-              <a href="https://m.me/Daff.Sulaiman?hash=AbYeTuN-aK38D32O&source=qr_link_share" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://m.me.Daff.Sulaiman?hash=AbYeTuN-aK38D32O&source=qr_link_share" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                <i className="fab fa-facebook-messenger"></i>
               </a>
             </div>
@@ -63,11 +67,40 @@ const Footer: React.FC = () => {
         <div className="footer-bottom">
           <p>&copy; {currentYear} Khadaffe Sulaiman. All rights reserved.</p>
           <div className="footer-bottom-links">
-            <a href="/privacy">Privacy Policy</a>
-            <a href="/terms">Terms of Service</a>
+            <button 
+              className="legal-link" 
+              onClick={() => setShowPrivacyPolicy(true)}
+            >
+              Privacy Policy
+            </button>
+            <span className="divider">|</span>
+            <button 
+              className="legal-link" 
+              onClick={() => setShowTerms(true)}
+            >
+              Terms of Service
+            </button>
           </div>
         </div>
       </div>
+      
+      {/* Privacy Policy Modal */}
+      <Modal 
+        isOpen={showPrivacyPolicy} 
+        onClose={() => setShowPrivacyPolicy(false)}
+        title="Privacy Policy"
+      >
+        <PrivacyPolicy />
+      </Modal>
+      
+      {/* Terms of Service Modal */}
+      <Modal 
+        isOpen={showTerms} 
+        onClose={() => setShowTerms(false)}
+        title="Terms of Service"
+      >
+        <TermsOfService />
+      </Modal>
     </footer>
   );
 };
