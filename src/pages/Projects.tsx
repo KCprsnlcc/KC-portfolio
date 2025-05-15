@@ -34,8 +34,7 @@ const Projects: React.FC = () => {
       '/images/projects/pilareasedjo-1.jpg',
       '/images/projects/pilareasedjo-2.jpg',
       '/images/projects/pilareasedjo-3.jpg',
-      '/images/projects/pilareasedjo-4.jpg',
-      '/images/projects/pilareasedjo-5.jpg'
+      '/images/projects/pilareasedjo-4.jpg'
     ]
   };
   
