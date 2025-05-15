@@ -271,22 +271,14 @@ const Projects: React.FC = () => {
   // Interactive card hover effect
   const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    
-    const centerX = rect.width / 2;
-    const centerY = rect.height / 2;
-    
-    const tiltX = (x - centerX) / centerX * 10;
-    const tiltY = (y - centerY) / centerY * 10;
-    
-    card.style.transform = `perspective(1000px) rotateX(${-tiltY}deg) rotateY(${tiltX}deg) scale3d(1.05, 1.05, 1.05)`;
+    card.style.transform = 'scale3d(1.05, 1.05, 1.05)';
+    card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
   };
   
   const handleCardLeave = (e: React.MouseEvent<HTMLDivElement>) => {
     const card = e.currentTarget;
-    card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+    card.style.transform = 'scale3d(1, 1, 1)';
+    card.style.boxShadow = '';
     card.style.transition = 'all 0.5s ease';
   };
 
