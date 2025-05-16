@@ -179,7 +179,7 @@ const Contact: React.FC = () => {
       <div className="contact-header" data-aos="fade-up">
         <h1 className="section-title">Get in Touch</h1>
         <p className="contact-intro">
-          Have a question or want to collaborate on a project? Feel free to reach out!
+          Have a question or want to collaborate on a project? Reach out below!
         </p>
       </div>
       

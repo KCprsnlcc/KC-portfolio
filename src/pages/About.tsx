@@ -51,6 +51,7 @@ const About: React.FC = () => {
       <div className="container">
         <div className="about-header" data-aos="fade-up">
           <h1 className="section-title">About Me</h1>
+          <p className="about-intro">Want to know more about me? Follow my journey below!</p>
         </div>
         
         <div className="about-content">
