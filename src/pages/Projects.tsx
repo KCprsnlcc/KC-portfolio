@@ -66,6 +66,19 @@ const Projects: React.FC = () => {
       ]
     },
     {
+      id: 7,
+      title: 'DevChat',
+      description: 'A real-time chat app inspired by GitHub\'s dark theme, offering instant messaging, room-based chats, and secure authentication.',
+      tags: ['Chat App', 'Dark Theme', 'React', 'Real-Time', 'Typescript', 'WebSocket'],
+      github: 'https://github.com/KCprsnlcc/DevChat',
+      liveUrl: 'https://dev-chat-kappa.vercel.app/',
+      images: [
+        '/images/projects/devchat.jpg',
+        '/images/projects/devchat-1.jpg',
+        '/images/projects/devchat-2.jpg'
+      ]
+    },
+    {
       id: 5,
       title: 'DTR Calculator',
       description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
