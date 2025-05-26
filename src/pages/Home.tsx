@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import './Home.css';
+import ScrollToTop from '../components/ScrollToTop';
 
 declare global {
   interface Window {
@@ -316,6 +317,7 @@ const Home: React.FC = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </section>
   );
 };

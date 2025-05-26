@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import ReCAPTCHA from 'react-google-recaptcha';
 import './Contact.css';
+import ScrollToTop from '../components/ScrollToTop';
 
 // IMPORTANT: Replace these values with your actual EmailJS credentials
 // 1. Sign up at https://www.emailjs.com/
@@ -357,6 +358,7 @@ const Contact: React.FC = () => {
           </form>
         </div>
       </div>
+      <ScrollToTop />
     </section>
   );
 };

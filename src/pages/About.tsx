@@ -4,6 +4,7 @@ import CertificateCarousel from '../components/CertificateCarousel';
 import HackathonCarousel from '../components/HackathonCarousel';
 // import ExperienceCarousel from '../components/ExperienceCarousel';
 import ExpCarousel from '../components/ExpCarousel';
+import ScrollToTop from '../components/ScrollToTop';
 import { certificates } from '../data/certificates';
 import { hackathons } from '../data/hackathons';
 import { experiences } from '../data/experiences';
@@ -177,6 +178,7 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+      <ScrollToTop />
     </section>
   );
 };

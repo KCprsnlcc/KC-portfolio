@@ -1,6 +1,7 @@
 import React from 'react';
 import './Blog.css';
 import UnderConstruction from '../components/UnderConstruction';
+import ScrollToTop from '../components/ScrollToTop';
 
 const Blog: React.FC = () => {
   return (
@@ -18,6 +19,7 @@ const Blog: React.FC = () => {
           />
         </div>
       </div>
+      <ScrollToTop />
     </section>
   );
 };

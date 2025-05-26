@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import './Projects.css';
+import ScrollToTop from '../components/ScrollToTop';
 
 interface Project {
   id: number;
@@ -547,6 +548,7 @@ const Projects: React.FC = () => {
           </div>
         </div>
       )}
+      <ScrollToTop />
     </section>
   );
 };
