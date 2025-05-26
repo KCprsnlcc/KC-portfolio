@@ -222,48 +222,96 @@ const Home: React.FC = () => {
 
       <div className="home-skills container" data-aos="fade-up" ref={skillsRef}>
         <h2 className="section-title">Technical Skills</h2>
-        <div className="skills-container">
-          <div className="skill-category" data-aos="fade-right" data-aos-delay="100">
-            <h3><i className="fas fa-code"></i> Languages & Frameworks</h3>
-            <div className="skill-pills">
-              <span className="interactive-pill">Python</span>
-              <span className="interactive-pill">Django</span>
-              <span className="interactive-pill">Flask</span>
-              <span className="interactive-pill">HTML/CSS</span>
-              <span className="interactive-pill">Bootstrap</span>
-              <span className="interactive-pill">JavaScript</span>
-              <span className="interactive-pill">React</span>
-              <span className="interactive-pill">TypeScript</span>
-              <span className="interactive-pill">PHP</span>
+        <div className="skills-rows">
+          {/* Row 1: Languages & Frameworks */}
+          <div className="skills-scroll-container">
+            <div className="skill-category">
+              <div className="skill-category-header">
+                <i className="fas fa-code"></i>
+                <span>Languages & Frameworks</span>
+              </div>
+              <p className="skill-category-description">Building robust and scalable applications with modern technologies</p>
+            </div>
+            <div className="skills-scroll">
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" /> Django</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /> HTML/CSS</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /> PHP</div>
+              {/* Duplicate items for seamless loop */}
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" /> Django</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /> HTML/CSS</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /> PHP</div>
             </div>
           </div>
-          
-          <div className="skill-category" data-aos="fade-right" data-aos-delay="200">
-            <h3><i className="fas fa-brain"></i> Machine Learning & AI</h3>
-            <div className="skill-pills">
-              <span className="interactive-pill">Hugging Face</span>
-              <span className="interactive-pill">NLTK</span>
-              <span className="interactive-pill">TensorFlow</span>
-              <span className="interactive-pill">Keras</span>
-              <span className="interactive-pill">Scikit-learn</span>
-              <span className="interactive-pill">OpenCV</span>
-              <span className="interactive-pill">Mediapipe</span>
-              <span className="interactive-pill">NLP</span>
+
+          {/* Row 2: Machine Learning & AI */}
+          <div className="skills-scroll-container reverse">
+            <div className="skill-category">
+              <div className="skill-category-header">
+                <i className="fas fa-brain"></i>
+                <span>Machine Learning & AI</span>
+              </div>
+              <p className="skill-category-description">Creating intelligent systems and data-driven solutions</p>
+            </div>
+            <div className="skills-scroll">
+              <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" /> Hugging Face</div>
+              <div className="skill-item"><img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" /> Pandas</div>
+              <div className="skill-item"><img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow" /> TensorFlow</div>
+              <div className="skill-item"><img src="https://keras.io/img/logo.png" alt="Keras" /> Keras</div>
+              <div className="skill-item"><img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-learn" /> Scikit-learn</div>
+              <div className="skill-item"><img src="https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_black.png" alt="OpenCV" /> OpenCV</div>
+              <div className="skill-item"><img src="https://mediapipe.dev/images/mediapipe_small.png" alt="Mediapipe" /> Mediapipe</div>
+              <div className="skill-item"><img src="https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png" alt="Matplotlib" /> Matplotlib</div>
+              {/* Duplicate items for seamless loop */}
+              <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" /> Hugging Face</div>
+              <div className="skill-item"><img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" /> Pandas</div>
+              <div className="skill-item"><img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow" /> TensorFlow</div>
+              <div className="skill-item"><img src="https://keras.io/img/logo.png" alt="Keras" /> Keras</div>
+              <div className="skill-item"><img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-learn" /> Scikit-learn</div>
+              <div className="skill-item"><img src="https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_black.png" alt="OpenCV" /> OpenCV</div>
+              <div className="skill-item"><img src="https://mediapipe.dev/images/mediapipe_small.png" alt="Mediapipe" /> Mediapipe</div>
+              <div className="skill-item"><img src="https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png" alt="Matplotlib" /> Matplotlib</div>
             </div>
           </div>
-          
-          <div className="skill-category" data-aos="fade-right" data-aos-delay="300">
-            <h3><i className="fas fa-tools"></i> Tools & Platforms</h3>
-            <div className="skill-pills">
-              <span className="interactive-pill">Git</span>
-              <span className="interactive-pill">GitHub</span>
-              <span className="interactive-pill">VS Code</span>
-              <span className="interactive-pill">Jupyter</span>
-              <span className="interactive-pill">Hugging Face Hub</span>
-              <span className="interactive-pill">PostgreSQL</span>
-              <span className="interactive-pill">MySQL</span>
-              <span className="interactive-pill">SQLite</span>
-              <span className="interactive-pill">RESTful APIs</span>
+
+          {/* Row 3: Tools & Platforms */}
+          <div className="skills-scroll-container">
+            <div className="skill-category">
+              <div className="skill-category-header">
+                <i className="fas fa-tools"></i>
+                <span>Tools & Platforms</span>
+              </div>
+              <p className="skill-category-description">Essential tools for development, version control, and databases</p>
+            </div>
+            <div className="skills-scroll">
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
+              {/* Duplicate items for seamless loop */}
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
+              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
             </div>
           </div>
         </div>
