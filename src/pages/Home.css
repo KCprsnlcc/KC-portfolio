@@ -702,4 +702,30 @@ body:has(.cursor) button,
 body:has(.cursor) .interactive-pill,
 body:has(.cursor) .service-card {
   cursor: auto;
+}
+
+.btn-cv {
+  background-color: #ffffff;
+  color: #0e2326;
+  transition: all 0.3s ease;
+}
+
+.btn-cv:hover {
+  background-color: #ffffff;
+  color: #0e2326;
+  transform: translateY(-3px);
+  box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+}
+
+.btn-cv::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(14, 35, 38, 0.1);
+  transform: rotate(45deg);
+  animation: btn-shine 3s infinite linear;
+  z-index: -1;
 } 

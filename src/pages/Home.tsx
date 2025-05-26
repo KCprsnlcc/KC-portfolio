@@ -101,6 +101,9 @@ const Home: React.FC = () => {
                 <Link to="/contact" className="btn btn-secondary btn-glow">
                   <i className="fas fa-paper-plane"></i> Get in Touch
                 </Link>
+                <a href="/assets/Khadaffe Sulaiman - CV (2025).pdf" download className="btn btn-cv btn-glow">
+                  <i className="fas fa-download"></i> Download CV
+                </a>
               </div>
             </div>
             <div className="hero-image animate__animated animate__fadeInRight">
