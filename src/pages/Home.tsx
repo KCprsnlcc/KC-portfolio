@@ -139,10 +139,10 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-laptop-code"></i>
+              <i className="fas fa-globe"></i>
             </div>
             <h3>Web Development</h3>
-            <p>Building responsive applications with Python (Django, Flask), JavaScript (React, TypeScript), and PHP.</p>
+            <p>Building responsive web applications with Python (Django, Flask), JavaScript (React, TypeScript), and PHP.</p>
           </div>
           
           <div 
@@ -167,10 +167,52 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
+              <i className="fas fa-desktop"></i>
+            </div>
+            <h3>Desktop Development</h3>
+            <p>Creating powerful desktop applications using Python with PyQt/Tkinter, providing native-like experiences across platforms.</p>
+          </div>
+          
+          <div 
+            className="service-card" 
+            data-aos="zoom-in" 
+            data-aos-delay="400"
+            onMouseMove={handleCardHover}
+            onMouseLeave={handleCardLeave}
+          >
+            <div className="service-icon">
               <i className="fas fa-database"></i>
             </div>
             <h3>Full-Stack Solutions</h3>
             <p>Creating end-to-end applications with database integration (PostgreSQL, MySQL, SQLite) and RESTful APIs.</p>
+          </div>
+
+          <div 
+            className="service-card" 
+            data-aos="zoom-in" 
+            data-aos-delay="500"
+            onMouseMove={handleCardHover}
+            onMouseLeave={handleCardLeave}
+          >
+            <div className="service-icon">
+              <i className="fas fa-tools"></i>
+            </div>
+            <h3>IT Support</h3>
+            <p>Providing software support including system formatting, maintenance, driver updates, software installation, and troubleshooting.</p>
+          </div>
+
+          <div 
+            className="service-card" 
+            data-aos="zoom-in" 
+            data-aos-delay="600"
+            onMouseMove={handleCardHover}
+            onMouseLeave={handleCardLeave}
+          >
+            <div className="service-icon">
+              <i className="fas fa-plug"></i>
+            </div>
+            <h3>API Integrations</h3>
+            <p>Integrating third-party APIs and services, building custom API solutions, and implementing webhooks for automated workflows.</p>
           </div>
         </div>
       </div>
