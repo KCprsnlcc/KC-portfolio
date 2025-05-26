@@ -231,7 +231,7 @@ const Home: React.FC = () => {
                 <i className="fas fa-code"></i>
                 <span>Languages & Frameworks</span>
               </div>
-              <p className="skill-category-description">Building robust and scalable applications with modern technologies</p>
+              <p className="skill-category-description">Building applications with modern technologies</p>
             </div>
             <div className="skills-scroll">
               <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
