@@ -234,25 +234,31 @@ const Home: React.FC = () => {
               <p className="skill-category-description">Building applications with modern technologies</p>
             </div>
             <div className="skills-scroll">
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" /> Django</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /> HTML/CSS</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /> PHP</div>
-              {/* Duplicate items for seamless loop */}
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" /> Python</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" alt="Django" /> Django</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" /> HTML/CSS</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" /> React</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" alt="PHP" /> PHP</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/python/python-original.svg" alt="Python" /> Python</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/django/django-plain.svg" alt="Django" /> Django</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/html5/html5-original.svg" alt="HTML5" /> HTML</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/css3/css3-original.svg" alt="CSS3" /> CSS</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" /> Tailwind CSS</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/react/react-original.svg" alt="React" /> React</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/nodejs/nodejs-original.svg" alt="Node.js" /> Node.js</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/php/php-original.svg" alt="PHP" /> PHP</div>
+              {/* Duplicate items for loop */}
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/python/python-original.svg" alt="Python" /> Python</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/django/django-plain.svg" alt="Django" /> Django</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/flask/flask-original.svg" alt="Flask" /> Flask</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/html5/html5-original.svg" alt="HTML5" /> HTML</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/css3/css3-original.svg" alt="CSS3" /> CSS</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/tailwindcss/tailwindcss-original.svg" alt="Tailwind CSS" /> Tailwind CSS</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/bootstrap/bootstrap-original.svg" alt="Bootstrap" /> Bootstrap</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/javascript/javascript-original.svg" alt="JavaScript" /> JavaScript</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/react/react-original.svg" alt="React" /> React</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/typescript/typescript-original.svg" alt="TypeScript" /> TypeScript</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/nodejs/nodejs-original.svg" alt="Node.js" /> Node.js</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/php/php-original.svg" alt="PHP" /> PHP</div>
             </div>
           </div>
 
@@ -267,22 +273,24 @@ const Home: React.FC = () => {
             </div>
             <div className="skills-scroll">
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" /> Hugging Face</div>
-              <div className="skill-item"><img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" /> Pandas</div>
-              <div className="skill-item"><img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow" /> TensorFlow</div>
-              <div className="skill-item"><img src="https://keras.io/img/logo.png" alt="Keras" /> Keras</div>
-              <div className="skill-item"><img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-learn" /> Scikit-learn</div>
-              <div className="skill-item"><img src="https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_black.png" alt="OpenCV" /> OpenCV</div>
-              <div className="skill-item"><img src="https://mediapipe.dev/images/mediapipe_small.png" alt="Mediapipe" /> Mediapipe</div>
-              <div className="skill-item"><img src="https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png" alt="Matplotlib" /> Matplotlib</div>
-              {/* Duplicate items for seamless loop */}
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pandas/pandas-original.svg" alt="Pandas" /> Pandas</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" /> TensorFlow</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pytorch/pytorch-original.svg" alt="PyTorch" /> PyTorch</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/keras/keras-original.svg" alt="Keras" /> Keras</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" /> Scikit-learn</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/opencv/opencv-original.svg" alt="OpenCV" /> OpenCV</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/numpy/numpy-original.svg" alt="Mediapipe" /> Mediapipe</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" /> Matplotlib</div>
+              {/* Duplicate items for loop */}
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face" /> Hugging Face</div>
-              <div className="skill-item"><img src="https://pandas.pydata.org/static/img/pandas_mark.svg" alt="Pandas" /> Pandas</div>
-              <div className="skill-item"><img src="https://www.tensorflow.org/images/tf_logo_social.png" alt="TensorFlow" /> TensorFlow</div>
-              <div className="skill-item"><img src="https://keras.io/img/logo.png" alt="Keras" /> Keras</div>
-              <div className="skill-item"><img src="https://scikit-learn.org/stable/_static/scikit-learn-logo-small.png" alt="Scikit-learn" /> Scikit-learn</div>
-              <div className="skill-item"><img src="https://opencv.org/wp-content/uploads/2020/07/OpenCV_logo_black.png" alt="OpenCV" /> OpenCV</div>
-              <div className="skill-item"><img src="https://mediapipe.dev/images/mediapipe_small.png" alt="Mediapipe" /> Mediapipe</div>
-              <div className="skill-item"><img src="https://matplotlib.org/stable/_images/sphx_glr_logos2_003.png" alt="Matplotlib" /> Matplotlib</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pandas/pandas-original.svg" alt="Pandas" /> Pandas</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/tensorflow/tensorflow-original.svg" alt="TensorFlow" /> TensorFlow</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pytorch/pytorch-original.svg" alt="PyTorch" /> PyTorch</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/keras/keras-original.svg" alt="Keras" /> Keras</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/scikitlearn/scikitlearn-original.svg" alt="Scikit-learn" /> Scikit-learn</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/opencv/opencv-original.svg" alt="OpenCV" /> OpenCV</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/numpy/numpy-original.svg" alt="Mediapipe" /> Mediapipe</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/matplotlib/matplotlib-original.svg" alt="Matplotlib" /> Matplotlib</div>
             </div>
           </div>
 
@@ -296,23 +304,23 @@ const Home: React.FC = () => {
               <p className="skill-category-description">Essential tools for development, version control, and databases</p>
             </div>
             <div className="skills-scroll">
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
-              {/* Duplicate items for seamless loop */}
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" /> Git</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
+              {/* Duplicate items for loop */}
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
-              <div className="skill-item"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
             </div>
           </div>
         </div>
