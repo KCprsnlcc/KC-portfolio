@@ -143,7 +143,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-globe"></i>
+              <i className="fa-solid fa-code"></i>
             </div>
             <h3>Web Development</h3>
             <p>Building responsive web applications with Python (Django, Flask), JavaScript (React, TypeScript), and PHP.</p>
@@ -157,7 +157,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-brain"></i>
+              <i className="fa-solid fa-microchip"></i>
             </div>
             <h3>AI & Machine Learning</h3>
             <p>Developing intelligent solutions using Hugging Face, NLTK, TensorFlow, and building chatbots and NLP applications.</p>
@@ -171,7 +171,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-desktop"></i>
+              <i className="fa-solid fa-laptop-code"></i>
             </div>
             <h3>Desktop Development</h3>
             <p>Creating powerful desktop applications using Python with PyQt/Tkinter, providing native-like experiences across platforms.</p>
@@ -185,7 +185,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-database"></i>
+              <i className="fa-solid fa-layer-group"></i>
             </div>
             <h3>Full-Stack Solutions</h3>
             <p>Creating end-to-end applications with database integration (PostgreSQL, MySQL, SQLite) and RESTful APIs.</p>
@@ -199,7 +199,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-tools"></i>
+              <i className="fa-solid fa-gear"></i>
             </div>
             <h3>IT Support</h3>
             <p>Providing software support including system formatting, maintenance, driver updates, software installation, and troubleshooting.</p>
@@ -213,7 +213,7 @@ const Home: React.FC = () => {
             onMouseLeave={handleCardLeave}
           >
             <div className="service-icon">
-              <i className="fas fa-plug"></i>
+              <i className="fa-solid fa-plug"></i>
             </div>
             <h3>API Integrations</h3>
             <p>Integrating third-party APIs and services, building custom API solutions, and implementing webhooks for automated workflows.</p>

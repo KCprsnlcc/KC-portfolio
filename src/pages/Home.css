@@ -296,19 +296,201 @@
 .service-icon {
   width: 80px;
   height: 80px;
-  background-color: var(--primary-color);
-  border-radius: 50%;
+  border-radius: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto 1.5rem;
   position: relative;
   overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.service-icon::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.service-icon::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.service-icon:hover::before {
+  transform: translateX(100%);
+}
+
+.service-icon:hover::after {
+  opacity: 1;
 }
 
 .service-icon i {
   font-size: 2rem;
-  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.1));
+  position: relative;
+  z-index: 1;
+}
+
+/* Web Development Icon */
+.service-icon .fa-code {
+  color: #2196F3;
+  animation: float 3s ease-in-out infinite;
+}
+
+/* AI & Machine Learning Icon */
+.service-icon .fa-microchip {
+  color: #9C27B0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Desktop Development Icon */
+.service-icon .fa-laptop-code {
+  color: #4CAF50;
+  animation: slide 3s ease-in-out infinite;
+}
+
+/* Full-Stack Solutions Icon */
+.service-icon .fa-layer-group {
+  color: #FF9800;
+  animation: stack 3s ease-in-out infinite;
+}
+
+/* IT Support Icon */
+.service-icon .fa-gear {
+  color: #E91E63;
+  animation: spin 3s linear infinite;
+}
+
+/* API Integrations Icon */
+.service-icon .fa-plug {
+  color: #00BCD4;
+  animation: connect 3s ease-in-out infinite;
+}
+
+/* Modern Animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes stack {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes connect {
+  0%, 100% {
+    transform: scale(1) translateX(0);
+  }
+  50% {
+    transform: scale(1.1) translateX(2px);
+  }
+}
+
+.service-card:hover .service-icon {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  border-radius: 16px;
+}
+
+.service-card:hover .service-icon i {
+  filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.2));
+}
+
+.service-card:hover .fa-code {
+  animation: float 2s ease-in-out infinite;
+}
+
+.service-card:hover .fa-microchip {
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.service-card:hover .fa-laptop-code {
+  animation: slide 2s ease-in-out infinite;
+}
+
+.service-card:hover .fa-layer-group {
+  animation: stack 2s ease-in-out infinite;
+}
+
+.service-card:hover .fa-gear {
+  animation: spin 2s linear infinite;
+}
+
+.service-card:hover .fa-plug {
+  animation: connect 2s ease-in-out infinite;
+}
+
+/* Add glow effect on hover */
+.service-card:hover .service-icon::before {
+  background: linear-gradient(45deg, 
+    transparent, 
+    rgba(255, 255, 255, 0.3), 
+    transparent
+  );
+}
+
+/* Add pulse effect to the icon container */
+@keyframes container-pulse {
+  0%, 100% {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.service-card:hover .service-icon {
+  animation: container-pulse 2s ease-in-out infinite;
 }
 
 .service-card h3 {
