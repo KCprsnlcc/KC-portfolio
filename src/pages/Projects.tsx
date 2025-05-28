@@ -67,19 +67,6 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 7,
-      title: 'DevChat',
-      description: 'A real-time chat app inspired by GitHub\'s dark theme, offering instant messaging, room-based chats, and secure authentication.',
-      tags: ['Chat App', 'Dark Theme', 'React', 'Real-Time', 'Typescript', 'WebSocket'],
-      github: 'https://github.com/KCprsnlcc/DevChat',
-      liveUrl: 'https://dev-chat-kappa.vercel.app/',
-      images: [
-        '/images/projects/devchat.jpg',
-        '/images/projects/devchat-1.jpg',
-        '/images/projects/devchat-2.jpg'
-      ]
-    },
-    {
       id: 5,
       title: 'DTR Calculator',
       description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
@@ -103,6 +90,20 @@ const Projects: React.FC = () => {
         '/images/projects/filemanager.jpg',
         '/images/projects/filemanager-1.jpg',
         '/images/projects/filemanager-2.jpg'
+      ]
+    },
+    {
+      id: 7,
+      title: 'Job Tracker',
+      description: 'A modern web application where users can track job applications, manage related tasks, and view insightful analytics to optimize their job search strategy.',
+      tags: ['React', 'TypeScript', 'Supabase', 'Analytics', 'Job Search', 'Task Management'],
+      github: 'https://github.com/KCprsnlcc/job-tracker',
+      liveUrl: 'https://job-tracker-two-phi.vercel.app/',
+      images: [
+        '/images/projects/job-tracker.jpg',
+        '/images/projects/job-tracker-1.jpg',
+        '/images/projects/job-tracker-2.jpg',
+        '/images/projects/job-tracker-3.jpg'
       ]
     },
     {

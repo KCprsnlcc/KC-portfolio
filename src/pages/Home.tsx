@@ -307,20 +307,24 @@ const Home: React.FC = () => {
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.svg" alt="Supabase" /> Supabase</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="Apache" /> Apache</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vercel/vercel-original.svg" alt="Vercel" /> Vercel</div>
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
-              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
               {/* Duplicate items for loop */}
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.svg" alt="Supabase" /> Supabase</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="Apache" /> Apache</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vercel/vercel-original.svg" alt="Vercel" /> Vercel</div>
               <div className="skill-item"><img src="https://huggingface.co/front/assets/huggingface_logo-noborder.svg" alt="Hugging Face Hub" /> Hugging Face Hub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" /> PostgreSQL</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/mysql/mysql-original.svg" alt="MySQL" /> MySQL</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/sqlite/sqlite-original.svg" alt="SQLite" /> SQLite</div>
-              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="RESTful APIs" /> RESTful APIs</div>
             </div>
           </div>
         </div>
