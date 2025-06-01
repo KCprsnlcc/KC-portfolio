@@ -81,32 +81,6 @@ const Projects: React.FC = () => {
       ]
     },
     {
-      id: 4,
-      title: 'Webcam Emotion Music Player',
-      description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
-      tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
-      github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
-      liveUrl: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer/releases',
-      images: [
-        '/images/projects/webcam-emotion.jpg',
-        '/images/projects/webcam-emotion-1.jpg',
-        '/images/projects/webcam-emotion-2.jpg'
-      ]
-    },
-    {
-      id: 1,
-      title: 'AI-Forecast',
-      description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
-      tags: ['Python', 'Time-Series', 'PySide6', 'ARIMA', 'Prophet', 'Data Analytics'],
-      github: 'https://github.com/KCprsnlcc/AI-Forecast',
-      liveUrl: 'https://github.com/KCprsnlcc/AI-Forecast/releases',
-      images: [
-        '/images/projects/ai-forecast.jpg',
-        '/images/projects/ai-forecast-1.jpg',
-        '/images/projects/ai-forecast-2.jpg'
-      ]
-    },
-    {
       id: 5,
       title: 'DTR Calculator',
       description: 'A productivity tool for recording daily time logs, computing deductions, and summarizing attendance-based performance.',
@@ -130,6 +104,32 @@ const Projects: React.FC = () => {
         '/images/projects/filemanager.jpg',
         '/images/projects/filemanager-1.jpg',
         '/images/projects/filemanager-2.jpg'
+      ]
+    },
+    {
+      id: 1,
+      title: 'AI-Forecast',
+      description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
+      tags: ['Python', 'Time-Series', 'PySide6', 'ARIMA', 'Prophet', 'Data Analytics'],
+      github: 'https://github.com/KCprsnlcc/AI-Forecast',
+      liveUrl: 'https://github.com/KCprsnlcc/AI-Forecast/releases',
+      images: [
+        '/images/projects/ai-forecast.jpg',
+        '/images/projects/ai-forecast-1.jpg',
+        '/images/projects/ai-forecast-2.jpg'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Webcam Emotion Music Player',
+      description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
+      tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
+      github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
+      liveUrl: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer/releases',
+      images: [
+        '/images/projects/webcam-emotion.jpg',
+        '/images/projects/webcam-emotion-1.jpg',
+        '/images/projects/webcam-emotion-2.jpg'
       ]
     }
   ];
