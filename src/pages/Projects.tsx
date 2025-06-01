@@ -21,6 +21,7 @@ const Projects: React.FC = () => {
   const [touchEnd, setTouchEnd] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement>(null);
   const [featuredImageIndex, setFeaturedImageIndex] = useState<number>(0);
+  const [shareMessage, setShareMessage] = useState<string>('');
   
   // Define the featured project
   const featuredProject: Project = {
@@ -41,6 +42,32 @@ const Projects: React.FC = () => {
   
   const projects: Project[] = [
     {
+      id: 7,
+      title: 'Job Tracker',
+      description: 'A modern web application where users can track job applications, manage related tasks, and view insightful analytics to optimize their job search strategy.',
+      tags: ['React', 'TypeScript', 'Supabase', 'Analytics', 'Job Search', 'Task Management'],
+      github: 'https://github.com/KCprsnlcc/job-tracker',
+      liveUrl: 'https://job-tracker-two-phi.vercel.app/',
+      images: [
+        '/images/projects/job-tracker.jpg',
+        '/images/projects/job-tracker-1.jpg',
+        '/images/projects/job-tracker-2.jpg'
+      ]
+    },
+    {
+      id: 8,
+      title: 'Disaster Alert Aggregator PH',
+      description: 'A real-time disaster alert aggregator for the Philippines, collecting information from official government sources including PAGASA and PHIVOLCS. Categorizes alerts by severity and type, displays them through a React + TypeScript frontend with real-time updates.',
+      tags: ['React', 'TypeScript', 'Supabase', 'Web Scraping', 'API', 'Real-time', 'Disaster Management'],
+      github: 'https://github.com/KCprsnlcc/disaster-alert-aggregator-ph',
+      liveUrl: 'https://disaster-alert-ph.vercel.app/',
+      images: [
+        '/images/projects/disaster-alert.jpg',
+        '/images/projects/disaster-alert-1.jpg',
+        '/images/projects/disaster-alert-2.jpg'
+      ]
+    },
+    {
       id: 6,
       title: 'AI Chatbot',
       description: 'AI-powered chatbot using TensorFlow.js for intent recognition, running entirely in the browser with no server-side dependencies.',
@@ -51,6 +78,19 @@ const Projects: React.FC = () => {
         '/images/projects/ai-chatbot.jpg',
         '/images/projects/ai-chatbot-1.jpg',
         '/images/projects/ai-chatbot-2.jpg'
+      ]
+    },
+    {
+      id: 4,
+      title: 'Webcam Emotion Music Player',
+      description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
+      tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
+      github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
+      liveUrl: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer/releases',
+      images: [
+        '/images/projects/webcam-emotion.jpg',
+        '/images/projects/webcam-emotion-1.jpg',
+        '/images/projects/webcam-emotion-2.jpg'
       ]
     },
     {
@@ -90,33 +130,6 @@ const Projects: React.FC = () => {
         '/images/projects/filemanager.jpg',
         '/images/projects/filemanager-1.jpg',
         '/images/projects/filemanager-2.jpg'
-      ]
-    },
-    {
-      id: 7,
-      title: 'Job Tracker',
-      description: 'A modern web application where users can track job applications, manage related tasks, and view insightful analytics to optimize their job search strategy.',
-      tags: ['React', 'TypeScript', 'Supabase', 'Analytics', 'Job Search', 'Task Management'],
-      github: 'https://github.com/KCprsnlcc/job-tracker',
-      liveUrl: 'https://job-tracker-two-phi.vercel.app/',
-      images: [
-        '/images/projects/job-tracker.jpg',
-        '/images/projects/job-tracker-1.jpg',
-        '/images/projects/job-tracker-2.jpg',
-        '/images/projects/job-tracker-3.jpg'
-      ]
-    },
-    {
-      id: 4,
-      title: 'Webcam Emotion Music Player',
-      description: 'An experimental project that classifies facial emotions from webcam input and matches them with curated music tracks.',
-      tags: ['Computer Vision', 'Emotion Analysis', 'Python', 'OpenCV', 'MediaPipe'],
-      github: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer',
-      liveUrl: 'https://github.com/KCprsnlcc/WebcamEmotionMusicPlayer/releases',
-      images: [
-        '/images/projects/webcam-emotion.jpg',
-        '/images/projects/webcam-emotion-1.jpg',
-        '/images/projects/webcam-emotion-2.jpg'
       ]
     }
   ];
@@ -301,6 +314,39 @@ const Projects: React.FC = () => {
     setFeaturedImageIndex(index);
   };
 
+  // Share project function
+  const shareProject = (project: Project, e?: React.MouseEvent) => {
+    if (e) e.stopPropagation();
+    
+    const shareData = {
+      title: `${project.title} - Khadaffe's Portfolio`,
+      text: `Check out ${project.title}: ${project.description.substring(0, 100)}...`,
+      url: project.liveUrl || project.github || window.location.href
+    };
+    
+    if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+      // Web Share API is supported
+      navigator.share(shareData)
+        .then(() => setShareMessage('Shared successfully!'))
+        .catch((error) => {
+          console.error('Error sharing:', error);
+          setShareMessage('');
+        });
+    } else {
+      // Fallback: Copy to clipboard
+      const shareUrl = project.liveUrl || project.github || window.location.href;
+      navigator.clipboard.writeText(shareUrl)
+        .then(() => {
+          setShareMessage('Link copied to clipboard!');
+          setTimeout(() => setShareMessage(''), 2000);
+        })
+        .catch(err => {
+          console.error('Could not copy text: ', err);
+          setShareMessage('');
+        });
+    }
+  };
+
   return (
     <section className="projects-section">
       <div className="container">
@@ -348,7 +394,7 @@ const Projects: React.FC = () => {
                 </div>
               </div>
               <div className="featured-project-overlay">
-                <button className="preview-btn" onClick={() => openPreview(featuredProject)}>
+                <button className="preview-btn btn btn-glow" onClick={() => openPreview(featuredProject)}>
                   <i className="fas fa-search-plus"></i> Preview
                 </button>
               </div>
@@ -363,17 +409,20 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <div className="project-links featured-links">
+              <div className="project-links featured-links hero-buttons">
                 {featuredProject.github && (
-                  <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="project-link link-hover">
+                  <a href={featuredProject.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-glow">
                     <i className="fab fa-github"></i> View on GitHub
                   </a>
                 )}
                 {featuredProject.liveUrl && (
-                  <a href={featuredProject.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link link-hover">
+                  <a href={featuredProject.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-glow">
                     <i className="fas fa-external-link-alt"></i> Live Demo
                   </a>
                 )}
+                <button onClick={(e) => shareProject(featuredProject, e)} className="btn btn-tertiary btn-glow">
+                  <i className="fas fa-share-alt"></i> Share
+                </button>
               </div>
             </div>
           </div>
@@ -428,7 +477,7 @@ const Projects: React.FC = () => {
                   )}
                 </div>
                 <div className="project-image-overlay">
-                  <button className="preview-btn" onClick={() => openPreview(project)}>
+                  <button className="preview-btn btn btn-glow" onClick={() => openPreview(project)}>
                     <i className="fas fa-search-plus"></i> Preview
                   </button>
                 </div>
@@ -442,17 +491,20 @@ const Projects: React.FC = () => {
                   </span>
                 ))}
               </div>
-              <div className="project-links">
+              <div className="project-links hero-buttons">
                 {project.github && (
-                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="project-link link-hover">
-                    <i className="fab fa-github"></i> View on GitHub
+                  <a href={project.github} target="_blank" rel="noopener noreferrer" className="btn btn-secondary btn-glow btn-sm">
+                    <i className="fab fa-github"></i> GitHub
                   </a>
                 )}
                 {project.liveUrl && (
-                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="project-link live-link link-hover">
+                  <a href={project.liveUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary btn-glow btn-sm">
                     <i className="fas fa-external-link-alt"></i> Live Demo
                   </a>
                 )}
+                <button onClick={(e) => shareProject(project, e)} className="btn btn-tertiary btn-glow btn-sm">
+                  <i className="fas fa-share-alt"></i> Share
+                </button>
               </div>
             </div>
           ))}
@@ -490,14 +542,14 @@ const Projects: React.FC = () => {
               {selectedProject.images.length > 1 && (
                 <>
                   <button 
-                    className="carousel-nav prev" 
+                    className="carousel-nav prev btn btn-glow" 
                     onClick={prevImage}
                     aria-label="Previous image"
                   >
                     <i className="fas fa-chevron-left"></i>
                   </button>
                   <button 
-                    className="carousel-nav next" 
+                    className="carousel-nav next btn btn-glow" 
                     onClick={nextImage}
                     aria-label="Next image"
                   >
@@ -523,13 +575,13 @@ const Projects: React.FC = () => {
             <div className="preview-details">
               <h3>{selectedProject.title}</h3>
               <p>{selectedProject.description}</p>
-              <div className="preview-links">
+              <div className="preview-links hero-buttons">
                 {selectedProject.github && (
                   <a 
                     href={selectedProject.github} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="project-link preview-link link-hover"
+                    className="btn btn-secondary btn-glow"
                   >
                     <i className="fab fa-github"></i> View on GitHub
                   </a>
@@ -539,17 +591,28 @@ const Projects: React.FC = () => {
                     href={selectedProject.liveUrl} 
                     target="_blank" 
                     rel="noopener noreferrer" 
-                    className="project-link preview-link live-link link-hover"
+                    className="btn btn-primary btn-glow"
                   >
                     <i className="fas fa-external-link-alt"></i> Live Demo
                   </a>
                 )}
+                <button 
+                  onClick={(e) => shareProject(selectedProject, e)} 
+                  className="btn btn-tertiary btn-glow"
+                >
+                  <i className="fas fa-share-alt"></i> Share
+                </button>
               </div>
             </div>
           </div>
         </div>
       )}
       <ScrollToTop />
+      {shareMessage && (
+        <div className="share-message">
+          <p>{shareMessage}</p>
+        </div>
+      )}
     </section>
   );
 };
