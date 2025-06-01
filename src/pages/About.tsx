@@ -35,6 +35,14 @@ const About: React.FC = () => {
 
   // Interactive card hover effect
   const handleCardHover = (e: React.MouseEvent<HTMLDivElement>) => {
+    // Skip effect if target is inside a carousel or an interactive element
+    if (e.target instanceof Element && 
+        (e.target.closest('.certificate-carousel') || 
+         e.target.closest('.hackathon-carousel') || 
+         e.target.closest('.experience-carousel'))) {
+      return;
+    }
+    
     const card = e.currentTarget;
     card.style.transform = 'scale3d(1.05, 1.05, 1.05)';
     card.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0.2)';
