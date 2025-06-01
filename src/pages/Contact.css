@@ -35,14 +35,54 @@
   padding: 1.5rem;
   border-radius: 15px;
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
   will-change: transform;
+  position: relative;
+  overflow: hidden;
+}
+
+.info-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.info-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.info-card:hover::before {
+  transform: translateX(100%);
+}
+
+.info-card:hover::after {
+  opacity: 1;
 }
 
 .info-card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  animation: pulse-shadow 2s infinite;
+}
+
+@keyframes pulse-shadow {
+  0%, 100% {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
+  }
 }
 
 .info-card h2 {
@@ -77,30 +117,75 @@
   width: 60px;
 }
 
-.info-card h2 i {
-  color: var(--primary-color);
+.info-card h2 i.fa-map-marker-alt {
+  color: #E91E63; /* Pink */
   margin-right: 0.75rem;
-  transition: transform 0.3s ease;
+  animation: float 3s ease-in-out infinite;
+}
+
+.info-card h2 i.fa-envelope {
+  color: #4CAF50; /* Green */
+  margin-right: 0.75rem;
+  animation: slide 3s ease-in-out infinite;
+}
+
+.info-card h2 i.fa-phone {
+  color: #2196F3; /* Blue */
+  margin-right: 0.75rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.info-card h2 i.fa-globe {
+  color: #FF9800; /* Orange */
+  margin-right: 0.75rem;
+  animation: stack 3s ease-in-out infinite;
 }
 
 .info-card:hover h2 i {
   transform: scale(1.2);
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-5px) scale(1.05);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes slide {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@keyframes stack {
+  0%, 100% {
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    transform: translateY(-3px) scale(1.05);
+  }
+}
+
 .info-card p {
   color: var(--text-color);
   font-size: 1.1rem;
-}
-
-.info-card a {
-  color: var(--primary-color);
-  text-decoration: none;
-  transition: var(--transition);
-  position: relative;
-}
-
-.info-card a:hover {
-  color: var(--secondary-color);
 }
 
 .info-card .social-links {
@@ -114,12 +199,31 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background-color: rgba(104, 158, 75, 0.1);
   border-radius: 50%;
   transition: all 0.3s ease;
-  color: var(--primary-color);
   position: relative;
   overflow: hidden;
+  margin: 0 5px;
+}
+
+.info-card .social-links a:nth-child(1) {
+  background-color: rgba(27, 31, 35, 0.1);
+  color: #24292e; /* GitHub color */
+}
+
+.info-card .social-links a:nth-child(2) {
+  background-color: rgba(0, 119, 181, 0.1);
+  color: #0077B5; /* LinkedIn color */
+}
+
+.info-card .social-links a:nth-child(3) {
+  background-color: rgba(66, 103, 178, 0.1);
+  color: #4267B2; /* Facebook color */
+}
+
+.info-card .social-links a:nth-child(4) {
+  background-color: rgba(0, 132, 255, 0.1);
+  color: #0084FF; /* Messenger color */
 }
 
 .info-card .social-links a::after {
@@ -138,10 +242,25 @@
 }
 
 .info-card .social-links a:hover {
-  background-color: var(--primary-color);
   color: white;
   transform: translateY(-3px) scale(1.1);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.info-card .social-links a:nth-child(1):hover {
+  background-color: #24292e; /* GitHub color */
+}
+
+.info-card .social-links a:nth-child(2):hover {
+  background-color: #0077B5; /* LinkedIn color */
+}
+
+.info-card .social-links a:nth-child(3):hover {
+  background-color: #4267B2; /* Facebook color */
+}
+
+.info-card .social-links a:nth-child(4):hover {
+  background-color: #0084FF; /* Messenger color */
 }
 
 .link-hover {
@@ -177,12 +296,43 @@
   padding: 2.5rem;
   border-radius: 20px;
   box-shadow: var(--card-shadow);
-  transition: all 0.3s ease;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   transform-style: preserve-3d;
+  position: relative;
+  overflow: hidden;
+}
+
+.contact-form-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  pointer-events: none;
+}
+
+.contact-form-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.contact-form-container:hover::before {
+  transform: translateX(100%);
+}
+
+.contact-form-container:hover::after {
+  opacity: 1;
 }
 
 .contact-form-container:hover {
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  animation: pulse-shadow 2s infinite;
 }
 
 .form-submitted {
