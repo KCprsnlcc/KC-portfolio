@@ -60,7 +60,7 @@ const Projects: React.FC = () => {
       description: 'A real-time disaster alert aggregator for the Philippines, collecting information from official government sources including PAGASA and PHIVOLCS. Categorizes alerts by severity and type, displays them through a React + TypeScript frontend with real-time updates.',
       tags: ['React', 'TypeScript', 'Supabase', 'Web Scraping', 'API', 'Real-time', 'Disaster Management'],
       github: 'https://github.com/KCprsnlcc/disaster-alert-aggregator-ph',
-      liveUrl: 'https://disaster-alert-ph.vercel.app/',
+      liveUrl: 'https://disaster-alert-aggregator-ph.vercel.app/',
       images: [
         '/images/projects/disaster-alert.jpg',
         '/images/projects/disaster-alert-1.jpg',
@@ -99,7 +99,7 @@ const Projects: React.FC = () => {
       description: 'A Python-based platform that applies time-series models such as ARIMA and Prophet to generate transaction forecasts, model artifacts, and visual analytics.',
       tags: ['Python', 'Time-Series', 'PySide6', 'ARIMA', 'Prophet', 'Data Analytics'],
       github: 'https://github.com/KCprsnlcc/AI-Forecast',
-      liveUrl: 'https://ai-forecast-demo.herokuapp.com',
+      liveUrl: 'https://github.com/KCprsnlcc/AI-Forecast/releases',
       images: [
         '/images/projects/ai-forecast.jpg',
         '/images/projects/ai-forecast-1.jpg',
