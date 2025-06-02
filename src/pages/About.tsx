@@ -75,16 +75,16 @@ const About: React.FC = () => {
           </div>
           
           <div className="about-card" data-aos="fade-up" data-aos-delay="100" onMouseMove={handleCardHover} onMouseLeave={handleCardLeave}>
-            <h2><i className="fas fa-briefcase"></i> Professional Interests</h2>
+            <h2><i className="fas fa-briefcase"></i> Areas of Interest</h2>
             <p>
-              I focus on building scalable systems that utilize machine learning and intelligent automation to solve real-world challenges. My work reflects a balance between academic rigor and practical development. I'm particularly interested in:
+              I am keen on developing practical applications and continuously learning in the field of technology. I'm particularly interested in exploring:
             </p>
             <ul className="interests-list">
-              <li className="interest-item">Full-stack web development with Django and React</li>
-              <li className="interest-item">Natural Language Processing applications</li>
-              <li className="interest-item">Time-series forecasting models</li>
-              <li className="interest-item">Computer vision and emotion analysis</li>
-              <li className="interest-item">AI-powered chatbots and assistants</li>
+              <li className="interest-item">Web development, including both front-end and back-end technologies like React and Django.</li>
+              <li className="interest-item">Applications of Natural Language Processing.</li>
+              <li className="interest-item">Data analysis and time-series forecasting.</li>
+              <li className="interest-item">The potential of computer vision, including emotion analysis.</li>
+              <li className="interest-item">Building helpful AI-powered chatbots and assistants.</li>
             </ul>
           </div>
           
