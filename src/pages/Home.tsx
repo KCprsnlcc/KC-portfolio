@@ -14,6 +14,36 @@ declare global {
 const Home: React.FC = () => {
   const typedRef = useRef<HTMLSpanElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);
+  const [isDownloading, setIsDownloading] = useState<boolean>(false);
+  
+  // Handle CV download with loading state
+  const handleDownload = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (isDownloading) {
+      e.preventDefault();
+      return;
+    }
+    
+    setIsDownloading(true);
+    // Reset download state after a timeout (in case download doesn't trigger properly)
+    setTimeout(() => {
+      setIsDownloading(false);
+    }, 3000);
+  };
+  
+  useEffect(() => {
+    // Add listener for actual download completion
+    const handleBeforeUnload = () => {
+      if (isDownloading) {
+        setIsDownloading(false);
+      }
+    };
+    
+    window.addEventListener('beforeunload', handleBeforeUnload);
+    
+    return () => {
+      window.removeEventListener('beforeunload', handleBeforeUnload);
+    };
+  }, [isDownloading]);
   
   useEffect(() => {
     // Initialize particles background
@@ -102,8 +132,21 @@ const Home: React.FC = () => {
                 <Link to="/contact" className="btn btn-secondary btn-glow">
                   <i className="fas fa-paper-plane"></i> Get in Touch
                 </Link>
-                <a href="/assets/Khadaffe Sulaiman - CV (2025).pdf" download className="btn btn-cv btn-glow">
-                  <i className="fas fa-download"></i> Download CV
+                <a 
+                  href="/assets/Khadaffe Sulaiman - CV (2025).pdf" 
+                  download 
+                  className={`btn btn-cv btn-glow ${isDownloading ? 'is-loading' : ''}`}
+                  onClick={handleDownload}
+                >
+                  {isDownloading ? (
+                    <>
+                      <div className="btn-loader"></div> Download CV
+                    </>
+                  ) : (
+                    <>
+                      <i className="fas fa-download"></i> Download CV
+                    </>
+                  )}
                 </a>
               </div>
             </div>
