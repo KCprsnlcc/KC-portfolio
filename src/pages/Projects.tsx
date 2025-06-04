@@ -94,6 +94,19 @@ const Projects: React.FC = () => {
       ]
     },
     {
+      id: 9,
+      title: 'Markdown Previewer',
+      description: 'A powerful, feature-rich markdown editor and previewer. Features include live markdown preview, document management, cloud sync and file operations',
+      tags: ['React', 'TypeScript', 'Supabase', 'Markdown', 'Mantine UI', 'Cloud Sync'],
+      github: 'https://github.com/KCprsnlcc/markdown-previewer',
+      liveUrl: 'https://markdown-previewer-ecru-omega.vercel.app/',
+      images: [
+        '/images/projects/markdown-previewer.jpg',
+        '/images/projects/markdown-previewer-1.jpg',
+        '/images/projects/markdown-previewer-2.jpg'
+      ]
+    },
+    {
       id: 3,
       title: 'File Manager',
       description: 'A basic cross-platform file manager built with PySide6. Supports file browsing, search, image preview, and basic file operations.',
