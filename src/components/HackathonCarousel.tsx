@@ -157,7 +157,7 @@ const HackathonCarousel: React.FC<HackathonCarouselProps> = ({ hackathons }) => 
   const closeFullScreen = () => {
     setIsFullScreen(false);
     document.body.style.overflow = ''; // Restore scrolling
-    startAutoPlay();
+    // Don't restart auto-play when exiting fullscreen
   };
 
   // Handle keyboard navigation in fullscreen mode

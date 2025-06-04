@@ -144,7 +144,7 @@ const Home: React.FC = () => {
                     </>
                   ) : (
                     <>
-                      <i className="fas fa-download"></i> Download CV
+                  <i className="fas fa-download"></i> Download CV
                     </>
                   )}
                 </a>
