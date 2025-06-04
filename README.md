@@ -71,7 +71,6 @@ This generates optimized files in the `build` folder that are ready for deployme
 
 - Blog section for sharing insights and experiences
 - AI Chatbot Assistant 
-- More interactive project demos
 - Integration with GitHub API to automatically update project information
 
 ## License
@@ -79,5 +78,6 @@ This generates optimized files in the `build` folder that are ready for deployme
 This project is open source and available under the [License](LICENSE.md).
 
 ---
-
-*This portfolio is a living document of my professional journey and will be continuously updated to reflect my growth and new skills.*
+<P align="center"> <i>
+This portfolio is a living document of my professional journey and will be continuously updated to reflect my growth and new skills.</i>
+</p>
