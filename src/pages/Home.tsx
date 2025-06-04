@@ -350,6 +350,7 @@ const Home: React.FC = () => {
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pycharm/pycharm-original.svg" alt="PyCharm" /> PyCharm</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.svg" alt="Supabase" /> Supabase</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="Apache" /> Apache</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vercel/vercel-original.svg" alt="Vercel" /> Vercel</div>
@@ -361,6 +362,7 @@ const Home: React.FC = () => {
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/git/git-original.svg" alt="Git" /> Git</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/github/github-original.svg" alt="GitHub" /> GitHub</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vscode/vscode-original.svg" alt="VS Code" /> VS Code</div>
+              <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/pycharm/pycharm-original.svg" alt="PyCharm" /> PyCharm</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/supabase/supabase/master/packages/common/assets/images/supabase-logo-icon.svg" alt="Supabase" /> Supabase</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/apache/apache-original.svg" alt="Apache" /> Apache</div>
               <div className="skill-item"><img src="https://raw.githubusercontent.com/devicons/devicon/refs/tags/v2.16.0/icons/vercel/vercel-original.svg" alt="Vercel" /> Vercel</div>
